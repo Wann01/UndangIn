@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Elegant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8B5FBF;
+            --primary-light: #B399D4;
+            --secondary: #FF7E5F;
+            --accent: #FFD166;
+            --light: #F7F9FC;
+            --dark: #2E2E3A;
+            --text: #4A4A4A;
+            --soft-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --strong-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        
+        /* Cover Page - New Design */
+        .cover-page {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .invitation-container {
+            position: relative;
+            z-index: 3;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            perspective: 1000px;
+        }
+        
+        .invitation-card {
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            color: white;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+        }
+        
+        .invitation-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            z-index: -1;
+        }
+        
+        .invitation-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 35px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .couple-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            margin: 1.5rem 0;
+            color: white;
+            line-height: 1.1;
+            font-weight: 600;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .couple-name::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            
+            border-radius: 3px;
+        }
+
+        /* Tambahan CSS untuk perbaikan */
+        .couple-info {
+            text-align: center;
+        }
+        
+        .bride, .groom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .gift-detail {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .gift-label {
+            text-align: left;
+        }
+        
+        .gift-value {
+            text-align: right;
+            word-break: break-word;
+        }        
+
+        .to {
+            margin: 2.5rem 0;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            position: relative;
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+        
+        .to:before, .to:after {
+            content: '✽';
+            position: absolute;
+            width: 30px;
+            height: 1px;
+            color: var(--accent);
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+        
+        .to:before {
+            left: -40px;
+        }
+        
+        .to:after {
+            right: -40px;
+        }
+        
+        .guest-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin: 1.5rem;
+            display: block;
+            letter-spacing: 1px;
+            font-weight: 500;
+            color: white;
+        }
+        
+        .btn-open {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            margin-top: 3rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+            font-weight: 500;
+            box-shadow: var(--soft-shadow);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .btn-open:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-open:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-open:hover:before {
+            left: 100%;
+        }
+        
+        /* Floating Elements - Enhanced */
+        .floating-element {
+            position: absolute;
+            opacity: 0;
+            z-index: 2;
+            animation: float 15s infinite linear;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+            pointer-events: none;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        /* Confetti Effect */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent);
+            opacity: 0;
+            z-index: 10;
+            animation: confetti-fall 5s linear forwards;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Main Content - New Design */
+        .main-content {
+            display: none;
+        }
+        
+        /* Section 1: Hero with Timer - Redesigned */
+        .section-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .couple-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .couple-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 255, 255, 0.2);
+        }
+        
+        .couple-photo::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+            70% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+        }
+        
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .couple-names:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .wedding-date {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            min-width: 120px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: var(--soft-shadow);
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        }
+        
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+        
+        /* Section 2: Couple Introduction - Redesigned */
+        .section-couple {
+            padding: 8rem 2rem;
+            text-align: center;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-couple::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: var(--gradient);
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        
+        .opening-message {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+        
+        .couple-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5rem;
+            margin-top: 5rem;
+            position: relative;
+        }
+        
+        .bride, .groom {
+            flex: 1;
+            min-width: 300px;
+            padding: 3rem 2rem;
+            position: relative;
+            transition: all 0.5s ease;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--soft-shadow);
+            border-top: 5px solid var(--primary);
+        }
+        
+        .bride:hover, .groom:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(139, 95, 191, 0.2);
+        }
+        
+        .couple-portrait {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 5px solid var(--primary-light);
+            box-shadow: var(--soft-shadow);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .couple-portrait:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(139, 95, 191, 0.3);
+        }
+        
+        .couple-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .parents-name {
+            font-style: italic;
+            margin-top: 1.5rem;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+        
+        /* Section 3: Event Schedule - Redesigned */
+        .section-events {
+            padding: 8rem 2rem;
+            background-color: var(--light);
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-events::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: var(--gradient);
+            z-index: 1;
+        }
+        
+        .events-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 5rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .event-card {
+            flex: 1;
+            min-width: 350px;
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            box-shadow: var(--soft-shadow);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--secondary);
+        }
+        
+        .event-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--secondary);
+            z-index: 1;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(255, 126, 95, 0.2);
+        }
+        
+        .event-icon {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .event-card:hover .event-icon {
+            transform: scale(1.1);
+        }
+        
+        .event-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .event-date, .event-time, .event-location {
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+        
+        .event-date {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.3rem;
+        }
+        
+        .event-location {
+            margin-top: 2rem;
+            font-weight: 500;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Section 4: Guest Messages - Redesigned */
+        .section-messages {
+            padding: 8rem 2rem;
+            background-color: var(--light);
+            text-align: center;
+            position: relative;
+        }
+
+        .section-messages::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: var(--gradient);
+            z-index: 1;
+        }
+
+        .message-form {
+            max-width: 700px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--soft-shadow);
+            text-align: left;
+            border-top: 5px solid var(--primary);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .message-form:hover {
+            box-shadow: 0 15px 40px rgba(139, 95, 191, 0.15);
+        }
+
+        .message-form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary);
+            z-index: 1;
+        }
+
+        .message-form label {
+            display: block;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .message-form input,
+        .message-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .message-form input:focus,
+        .message-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(139, 95, 191, 0.1);
+        }
+
+        .message-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            gap: 1.5rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: var(--gradient);
+            color: white;
+            flex: 1;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(139, 95, 191, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 95, 191, 0.4);
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+        }
+
+        .comment-list {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            text-align: left;
+        }
+
+        .comment-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .comment-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 95, 191, 0.1);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .comment-name {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.3rem;
+        }
+
+        .comment-text {
+            color: var(--text);
+            line-height: 1.8;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .comment-date {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        .delete-comment {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(139, 95, 191, 0.3);
+        }
+
+        .delete-comment:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 95, 191, 0.4);
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .loading-spinner {
+            width: 70px;
+            height: 70px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 18px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            animation: fadeInUp 0.5s ease forwards;
+            font-weight: 600;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .btn-submit {
+            position: relative;
+        }
+
+        .btn-submit .loading {
+            display: none;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px;
+            height: 25px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Section 5: Digital Gifts - Redesigned */
+        .section-gifts {
+            padding: 8rem 2rem;
+            background-color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-gifts::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: var(--gradient);
+            z-index: 1;
+        }
+
+        .gift-container {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--soft-shadow);
+            padding: 3.5rem;
+            border-top: 5px solid var(--primary);
+            position: relative;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .gift-container:hover {
+            box-shadow: 0 20px 50px rgba(139, 95, 191, 0.15);
+        }
+
+        .gift-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary);
+            z-index: 1;
+        }
+
+        .gift-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        .gift-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .gift-method {
+            flex: 1;
+            min-width: 350px;
+            padding: 2.5rem;
+            border-radius: 20px;
+            background: white;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .gift-method:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 95, 191, 0.15);
+            border-color: var(--primary-light);
+        }
+
+        .gift-method-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+        }
+
+        .gift-method-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .gift-detail {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .gift-detail:hover {
+            background: #f0f0f0;
+        }
+
+        .gift-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .gift-value {
+            font-weight: 700;
+            color: var(--primary);
+            word-break: break-all;
+            text-align: right;
+            font-size: 1.1rem;
+        }
+
+        .copy-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 2rem auto 0;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(139, 95, 191, 0.3);
+            width: 100%;
+        }
+
+        .copy-btn:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 95, 191, 0.4);
+        }
+
+        .copy-btn.copied {
+            background: #4CAF50;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .gift-note {
+            margin-top: 3rem;
+            font-size: 1rem;
+            color: #777;
+            text-align: center;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            margin: 1.5rem auto;
+            background: white;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Footer - Redesigned */
+        .footer {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: var(--gradient);
+            z-index: 1;
+        }
+        
+        .footer-text {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-top: 3rem;
+            color: var(--accent);
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
+        }
+        
+        /* Floating Music Player - Redesigned */
+        .music-player {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 15px 35px rgba(139, 95, 191, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .music-player:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 40px rgba(139, 95, 191, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .couple-name {
+                font-size: 4rem;
+            }
+            
+            .couple-names {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .event-card, .gift-method {
+                min-width: 300px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .couple-name {
+                font-size: 3.5rem;
+            }
+            
+            .couple-names {
+                font-size: 3.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .countdown-item {
+                min-width: 100px;
+                padding: 1.5rem 1rem;
+            }
+            
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .couple-name {
+                font-size: 3rem;
+            }
+            
+            .couple-names {
+                font-size: 3rem;
+            }
+            
+            .wedding-date {
+                font-size: 1.5rem;
+            }
+            
+            .countdown {
+                gap: 1rem;
+            }
+            
+            .countdown-item {
+                min-width: 90px;
+                padding: 1.5rem 0.8rem;
+            }
+            
+            .countdown-number {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .couple-portrait, .couple-photo {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .message-form, .gift-container {
+                padding: 2.5rem;
+            }
+            
+            .gift-method {
+                min-width: 100%;
+            }
+            
+            .music-player {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 30px;
+                right: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .couple-name {
+                font-size: 2.5rem;
+            }
+            
+            .guest-name {
+                font-size: 1.8rem;
+            }
+            
+            .couple-names {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .couple-portrait, .couple-photo {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .event-card {
+                min-width: 280px;
+                padding: 3rem 2rem;
+            }
+            
+            .message-form {
+                padding: 2rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .music-player {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover-page" id="coverPage">
+        <!-- Floating elements -->
+        <div class="floating-element" style="width: 40px; height: 40px; top: 10%; left: 10%; animation-duration: 25s;">✽</div>
+        <div class="floating-element" style="width: 50px; height: 50px; top: 20%; left: 80%; animation-duration: 30s;">❀</div>
+        <div class="floating-element" style="width: 35px; height: 35px; top: 70%; left: 15%; animation-duration: 22s;">✿</div>
+        <div class="floating-element" style="width: 45px; height: 45px; top: 80%; left: 70%; animation-duration: 28s;">❁</div>
+        <div class="floating-element" style="width: 40px; height: 40px; top: 30%; left: 50%; animation-duration: 20s;">✦</div>
+        
+        <div class="invitation-container">
+            <div class="invitation-card animate__animated animate__fadeIn">
+                <div class="title">The Wedding Of</div>
+                <div class="couple-name">Ahmad & Siti</div>
+                <div class="to">Kepada Yth.</div>
+                <div class="guest-name" id="guestName">Lukman, S.Aktr</div>
+                <button class="btn-open" id="openInvitation">Buka Undangan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Section 1: Hero with Timer -->
+        <section class="section-hero">
+            <img src="images/pp1.png" alt="Couple Photo" class="couple-photo animate-fadeInUp">
+            <h1 class="couple-names animate-fadeInUp delay-1">Ahmad & Siti</h1>
+            <p class="wedding-date animate-fadeInUp delay-1">Sabtu, 12 Desember 2025</p>
+            
+            <div class="countdown">
+                <div class="countdown-item animate-fadeInUp delay-2">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Hari</div>
+                </div>
+                <div class="countdown-item animate-fadeInUp delay-2">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Jam</div>
+                </div>
+                <div class="countdown-item animate-fadeInUp delay-3">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Menit</div>
+                </div>
+                <div class="countdown-item animate-fadeInUp delay-3">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Detik</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Couple Introduction -->
+        <section class="section-couple">
+            <h2 class="section-title animate-fadeInUp">Assalamu'alaikum</h2>
+            <p class="opening-message animate-fadeInUp delay-1">
+                Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, 
+                kami bermaksud menyelenggarakan pernikahan putra-putri kami 
+                yang insya Allah akan dilaksanakan pada:
+            </p>
+            
+            <div class="couple-info">
+                <div class="groom animate-fadeInUp delay-2">
+                    <img src="images/pp3.png" alt="Groom" class="couple-portrait">
+                    <h3 class="couple-name">Ahmad Fauzi</h3>
+                    <p>Putra pertama dari</p>
+                    <p class="parents-name">Bapak Muhammad & Ibu Aisyah</p>
+                </div>
+                
+                <div class="bride animate-fadeInUp delay-3">
+                    <img src="images/pp4.png" alt="Bride" class="couple-portrait">
+                    <h3 class="couple-name">Siti Rahmah</h3>
+                    <p>Putri kedua dari</p>
+                    <p class="parents-name">Bapak Abdullah & Ibu Fatimah</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Event Schedule -->
+        <section class="section-events">
+            <h2 class="section-title animate-fadeInUp">Jadwal Acara</h2>
+            
+            <div class="events-container">
+                <div class="event-card animate-fadeInUp delay-1">
+                    <div class="event-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <h3 class="event-title">Akad Nikah</h3>
+                    <p class="event-date">Sabtu, 12 Desember 2025</p>
+                    <p class="event-time">08.00 - 10.00 WIB</p>
+                    <p class="event-location">Masjid Al-Falah<br>Jl. Kenangan No. 123, Kota</p>
+                </div>
+                
+                <div class="event-card animate-fadeInUp delay-2">
+                    <div class="event-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="event-title">Resepsi</h3>
+                    <p class="event-date">Sabtu, 12 Desember 2025</p>
+                    <p class="event-time">11.00 - 15.00 WIB</p>
+                    <p class="event-location">Grand Ballroom Hotel Mewah<br>Jl. Bahagia No. 456, Kota</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Digital Gifts -->
+        <section class="section-gifts">
+            <h2 class="section-title animate-fadeInUp"><i class="fas fa-gift"></i> Kirim Hadiah</h2>
+            
+            <div class="gift-container animate-fadeInUp delay-1">
+                <p class="gift-intro">
+                    Bagi Anda yang ingin memberikan tanda kasih untuk mempelai, 
+                    dapat mengirimkan melalui rekening bank atau e-wallet berikut ini. 
+                    Terima kasih atas kebahagiaan yang Anda turut berikan.
+                </p>
+                
+                <div class="gift-methods">
+                    <!-- Bank Transfer Method -->
+                    <div class="gift-method">
+                        <h3 class="gift-method-title">
+                            <i class="fas fa-university gift-method-icon"></i>
+                            Transfer Bank
+                        </h3>
+                        
+                        <div class="gift-detail">
+                            <span class="gift-label">Nama Bank:</span>
+                            <span class="gift-value">Bank Central Asia (BCA)</span>
+                        </div>
+                        
+                        <div class="gift-detail">
+                            <span class="gift-label">Nomor Rekening:</span>
+                            <span class="gift-value">123 456 7890</span>
+                        </div>
+                        
+                        <div class="gift-detail">
+                            <span class="gift-label">Atas Nama:</span>
+                            <span class="gift-value">Ahmad Fauzi</span>
+                        </div>
+                        
+                        <button class="copy-btn" data-copy="123 456 7890">
+                            <i class="far fa-copy"></i> Salin Nomor Rekening
+                        </button>
+                        
+                        <div class="qr-code">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=BCA%20123%20456%207890%20Ahmad%20Fauzi" alt="QR Code BCA">
+                        </div>
+                    </div>
+                    
+                    <!-- E-Wallet Method -->
+                    <div class="gift-method">
+                        <h3 class="gift-method-title">
+                            <i class="fas fa-wallet gift-method-icon"></i>
+                            E-Wallet
+                        </h3>
+                        
+                        <div class="gift-detail">
+                            <span class="gift-label">Jenis E-Wallet:</span>
+                            <span class="gift-value">DANA</span>
+                        </div>
+                        
+                        <div class="gift-detail">
+                            <span class="gift-label">Nomor Telepon:</span>
+                            <span class="gift-value">0812 3456 7890</span>
+                        </div>
+                        
+                        <div class="gift-detail">
+                            <span class="gift-label">Atas Nama:</span>
+                            <span class="gift-value">Siti Rahmah</span>
+                        </div>
+                        
+                        <button class="copy-btn" data-copy="081234567890">
+                            <i class="far fa-copy"></i> Salin Nomor DANA
+                        </button>
+                        
+                        <div class="qr-code">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=081234567890" alt="QR Code DANA">
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="gift-note">
+                    *Jika Anda telah mengirimkan hadiah, mohon konfirmasi melalui WhatsApp ke nomor 0812-3456-7890
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: Guest Messages (Komentar) -->
+        <section class="section-messages">
+            <h2 class="section-title animate-fadeInUp"><i class="fas fa-comments"></i> Ucapan & Doa</h2>
+
+            <!-- Form Ucapan -->
+            <div class="notification" id="notification"></div>
+            <div class="message-form animate-fadeInUp delay-1">
+                <form id="commentForm">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" required placeholder="Masukkan nama Anda">
+
+                    <label for="comment">Pesan</label>
+                    <textarea id="comment" required placeholder="Tulis ucapan dan doa untuk mempelai..."></textarea>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn-primary btn-submit">
+                            <i class="fas fa-paper-plane"></i> Kirim Ucapan
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-spinner"></div>
+            </div>
+
+            <!-- Daftar Komentar -->
+            <div class="comment-list" id="commentList">
+                <!-- Komentar akan muncul di sini -->
+                <div class="comment-item animate-fadeInUp delay-3">
+                    <div class="comment-header">
+                        <span class="comment-name">Contoh Nama</span>
+                    </div>
+                    <p class="comment-text">Ini adalah contoh ucapan. Semoga pernikahan kalian bahagia selalu!</p>
+                    <div class="comment-date">12 Desember 2025, 10:30</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text animate-fadeInUp">
+                Terima kasih atas doa dan restu yang telah diberikan. 
+                Semoga Allah SWT membalas semua kebaikan Anda.
+            </p>
+            <p class="signature animate-fadeInUp delay-1">Keluarga Besar Pengantin</p>
+        </footer>
+    </div>
+
+    <!-- Floating Music Player -->
+    <div class="music-player" id="musicPlayer" title="Putar Musik">
+        <i class="fas fa-music"></i>
+        <audio id="bgMusic" loop>
+            <source src="music/musik2.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        // Open Invitation with Confetti Effect
+        document.getElementById('openInvitation').addEventListener('click', function() {
+            // Create confetti effect
+            createConfetti();
+            
+            // Hide cover page and show main content
+            setTimeout(() => {
+                document.getElementById('coverPage').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                document.body.style.overflow = 'auto';
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+                
+                // Play music
+                document.getElementById('bgMusic').play();
+                
+                // Create more floating elements
+                createFloatingElements();
+            }, 1000);
+        });
+
+        // Function to create confetti
+        function createConfetti() {
+            const colors = ['#8B5FBF', '#FF7E5F', '#FFD166', '#4ECDC4', '#45B7D1'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Function to get URL parameter
+        function getUrlParameter(name) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Set guest name from URL parameter
+        document.addEventListener('DOMContentLoaded', function() {
+            var guestName = getUrlParameter('to');
+            if (guestName) {
+                document.getElementById('guestName').textContent = guestName;
+            }
+            
+            // Create initial floating elements
+            createFloatingElements();
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('December 12, 2025 08:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Add pulse animation when time is running out
+            if (days < 7) {
+                document.querySelectorAll('.countdown-item').forEach(item => {
+                    item.style.animation = 'pulse 1s infinite';
+                });
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Konfigurasi Google Sheets API
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMzxL3NTnOzChj9tvAmbfODgJQjBC_gM6nhOyxr4OLpz6JVWU5a5-keEy6SqG9ygM6iw/exec';
+
+        // Fungsi Komentar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load komentar dari Google Sheets
+            loadComments();
+            
+            // Form submission
+            document.getElementById('commentForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value.trim();
+                const commentText = document.getElementById('comment').value.trim();
+                const submitBtn = this.querySelector('button[type="submit"]');
+                
+                if (name && commentText) {
+                    try {
+                        // Tampilkan loading
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = 'Mengirim... <div class="loading"></div>';
+                        document.getElementById('loadingOverlay').style.display = 'flex';
+                        
+                        const formData = new FormData();
+                        formData.append('name', name);
+                        formData.append('comment', commentText);
+                        
+                        const response = await fetch(SCRIPT_URL, {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.status === "success") {
+                            // Reset form
+                            this.reset();
+                            
+                            // Reload komentar
+                            await loadComments();
+                            
+                            // Tampilkan notifikasi
+                            showNotification('Ucapan Anda telah terkirim! Terima kasih');
+                            
+                            // Small celebration effect
+                            createConfetti();
+                        } else {
+                            throw new Error(result.message || 'Gagal menyimpan data');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        showNotification('Gagal mengirim ucapan: ' + error.message, 'error');
+                    } finally {
+                        // Sembunyikan loading
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Ucapan';
+                        document.getElementById('loadingOverlay').style.display = 'none';
+                    }
+                }
+            });
+            
+            // Fungsi untuk menampilkan notifikasi
+            function showNotification(message, type = 'success') {
+                const notification = document.getElementById('notification');
+                notification.textContent = message;
+                notification.style.background = type === 'error' ? 'linear-gradient(135deg, #F44336, #D32F2F)' : 'var(--gradient)';
+                notification.style.display = 'block';
+                
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            }
+            
+            // Fungsi untuk memuat komentar dari Google Sheets
+            async function loadComments() {
+                try {
+                    const response = await fetch(`${SCRIPT_URL}?t=${Date.now()}`);
+                    const result = await response.json();
+                    
+                    if (result.status === "success") {
+                        updateCommentList(result.comments);
+                    } else {
+                        throw new Error(result.message || 'Gagal memuat komentar');
+                    }
+                } catch (error) {
+                    console.error('Error loading comments:', error);
+                    showNotification('Gagal memuat komentar: ' + error.message, 'error');
+                }
+            }
+        });
+
+        // Fungsi untuk memperbarui daftar komentar
+        function updateCommentList(comments) {
+            const commentList = document.getElementById('commentList');
+            
+            if (comments.length === 0) {
+                commentList.innerHTML = '<p style="text-align: center; color: #666; font-size: 1.2rem;">Belum ada ucapan. Jadilah yang pertama mengirimkan ucapan!</p>';
+                return;
+            }
+            
+            commentList.innerHTML = '';
+            
+            // Sort comments by date (newest first)
+            comments.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            
+            comments.forEach(comment => {
+                const commentItem = document.createElement('div');
+                commentItem.className = 'comment-item animate-fadeInUp';
+                
+                // Format date yang diperbaiki
+                const date = new Date(comment.timestamp);
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                const formattedDate = date.toLocaleDateString('id-ID', options);
+                
+                commentItem.innerHTML = `
+                    <div class="comment-header">
+                        <span class="comment-name">${comment.name}</span>
+                    </div>
+                    <p class="comment-text">${comment.text}</p>
+                    <div class="comment-date">${formattedDate}</div>
+                `;
+                
+                commentList.appendChild(commentItem);
+            });
+        }
+
+        // Copy button functionality for gift section
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const textToCopy = this.getAttribute('data-copy');
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        // Change button style temporarily
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-check"></i> Tersalin!';
+                        this.classList.add('copied');
+                        
+                        // Show notification
+                        showNotification('Teks berhasil disalin ke clipboard!');
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.classList.remove('copied');
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        showNotification('Gagal menyalin teks. Silakan salin manual.', 'error');
+                    });
+                });
+            });
+        });
+
+        // Music Player Toggle
+        const musicPlayer = document.getElementById('musicPlayer');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+        
+        musicPlayer.addEventListener('click', function() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicPlayer.innerHTML = '<i class="fas fa-music"></i>';
+                musicPlayer.title = "Putar Musik";
+            } else {
+                bgMusic.play();
+                musicPlayer.innerHTML = '<i class="fas fa-pause"></i>';
+                musicPlayer.title = "Jeda Musik";
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Create floating elements
+        function createFloatingElements() {
+            const elements = ['✽', '❀', '✿', '❁', '✦', '✧', '❊', '♥', '♡', '✧', '✺'];
+            const colors = ['#8B5FBF', '#FF7E5F', '#FFD166', '#FFFFFF', '#B399D4', '#FFB399'];
+            
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.textContent = elements[Math.floor(Math.random() * elements.length)];
+                element.style.color = colors[Math.floor(Math.random() * colors.length)];
+                element.style.width = `${Math.random() * 30 + 20}px`;
+                element.style.height = element.style.width;
+                element.style.top = `${Math.random() * 80 + 10}%`;
+                element.style.left = `${Math.random() * 80 + 10}%`;
+                element.style.animationDuration = `${Math.random() * 15 + 15}s`;
+                element.style.animationDelay = `${Math.random() * 5}s`;
+                element.style.fontSize = element.style.width;
+                element.style.opacity = Math.random() * 0.5 + 0.3;
+                
+                if (Math.random() > 0.5) {
+                    element.style.animationDirection = 'reverse';
+                }
+                
+                document.body.appendChild(element);
+            }
+        }
+    </script>
+</body>
+</html>

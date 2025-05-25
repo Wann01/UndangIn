@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UndangIn</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Variabel Warna */
+        :root {
+            --primary: #6d28d9;
+            --primary-light: #FAE4DA;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+        /* Logo Styles */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 40px; /* Sesuaikan dengan ukuran yang diinginkan */
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+                nav ul {
+            display: flex;
+            list-style: none;
+        }
+        @media (max-width: 768px) {
+            .logo-container {
+                gap: 8px;
+            }
+            
+            .logo-img {
+                height: 30px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+        }
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(109, 40, 217, 0.1), rgba(139, 92, 246, 0.1));
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--dark);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        /* Template Section */
+        .templates {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .template-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .template-preview {
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .template-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .template-card:hover .template-preview img {
+            transform: scale(1.05);
+        }
+
+        .template-info {
+            padding: 1.5rem;
+        }
+
+        .template-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .template-info p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .template-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .preview-btn, .download-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .preview-btn {
+            background-color: var(--light);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .preview-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .download-btn {
+            background-color: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: var(--light);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Modal untuk Preview Template */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .template-full-preview {
+            width: 100%;
+            height: 500px;
+            border: 1px solid var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 2% auto;
+            }
+
+            .template-full-preview {
+                height: 300px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="images/foto.png" alt="UndangIn Logo" class="logo-img">
+                <h1 class="logo-text">Undang<span>In</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#templates">Template</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Template Undangan Digital Profesional</h1>
+            <p>Pilih template undangan digital yang elegan dan mudah disesuaikan untuk acara spesial Anda. Preview sebelum memilih.</p>
+            <a href="#templates" class="cta-button">Lihat Template</a>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="templates" id="templates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Koleksi Template Kami</h2>
+                <p>Pilih template favorit Anda</p>
+            </div>
+            <div class="template-grid">
+                <!-- Template 1 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <img src="images/temp1.png" alt="Template Undangan 1">
+                    </div>
+                    <div class="template-info">
+                        <h3>Undangan Pernikahan Modern</h3>
+                        <p>Template undangan pernikahan dengan sentuhan modern.</p>
+                        <div class="template-actions">
+                            <a href="temp/template1.html" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 2 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <img src="images/temp2.png" alt="Template Undangan 2">
+                    </div>
+                    <div class="template-info">
+                        <h3>Undangan Pernikahan Mewah</h3>
+                        <p>Undangan pernikahan dengan nuansa yang mewah.</p>
+                        <div class="template-actions">
+                            <a href="temp/template2.html" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 3 -->
+                <div class="template-card">
+                    <div class="template-preview">
+                        <img src="images/temp3.png" alt="Template Undangan 3">
+                    </div>
+                    <div class="template-info">
+                        <h3>Undangan Pernikahan Elegan</h3>
+                        <p>Undangan dengan nuansa bunga yang elegan.</p>
+                        <div class="template-actions">
+                            <a href="temp/template3.html" class="preview-btn"><i class="fas fa-eye"></i> Preview</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>UndanganKu</h3>
+                    <p>Penyedia template undangan digital profesional untuk berbagai acara spesial Anda.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#templates">Template</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> lukmn0012@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +6289616630117</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Bantaeng, Sulawesi Selatan, Indonesia</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Media Sosial</h3>
+                    <ul>
+                        <li><a href="https://www.instagram.com/_undangin_?igsh=aXkwY3Rnd2UwNXY0"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/@_undangin_?_t=ZS-8weGqNmFuMb&_r=1"><i class="fab fa-tiktok"></i> Tiktok</a></li>
+                        <li><a href="https://wa.me/6289616630117"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 UndangIn. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fungsi untuk membuka modal preview
+        function openModal(templateId) {
+            const modal = document.getElementById('previewModal');
+            const previewContainer = document.getElementById('templatePreview');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            // Set judul modal berdasarkan template
+            const templateTitles = {
+                'template1': 'Preview Template: Elegant Purple',
+                'template2': 'Preview Template: Golden Wedding',
+                'template3': 'Preview Template: Green Garden',
+                'template4': 'Preview Template: Blue Ocean',
+                'template5': 'Preview Template: Red Velvet',
+                'template6': 'Preview Template: Classic Black'
+            };
+            
+            modalTitle.textContent = templateTitles[templateId] || 'Preview Template';
+            
+            // Load preview template (dalam implementasi nyata, ini bisa berupa iframe atau gambar besar)
+            previewContainer.innerHTML = `
+                <img src="https://via.placeholder.com/800x500/${getTemplateColor(templateId)}/ffffff?text=Full+Preview+${templateId.replace('template', '')}" 
+                     alt="Full Preview ${templateId}" 
+                     style="width: 100%; height: 100%; object-fit: contain;">
+            `;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Mencegah scroll saat modal terbuka
+        }
+        
+        // Fungsi untuk menutup modal
+        function closeModal() {
+            const modal = document.getElementById('previewModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Mengembalikan scroll
+        }
+        
+        // Fungsi helper untuk mendapatkan warna template
+        function getTemplateColor(templateId) {
+            const colors = {
+                'template1': '6d28d9',
+                'template2': 'f59e0b',
+                'template3': '10b981',
+                'template4': '3b82f6',
+                'template5': 'ef4444',
+                'template6': '1e293b'
+            };
+            return colors[templateId] || '6d28d9';
+        }
+        
+        // Tutup modal jika mengklik di luar konten modal
+        window.onclick = function(event) {
+            const modal = document.getElementById('previewModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
