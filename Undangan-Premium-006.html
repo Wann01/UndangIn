@@ -1,0 +1,1498 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reski & Riska</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans:wght@100;300;400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- simplyCountdown -->
+  <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css" />
+  <script src="countdown/simplyCountdown.min.js"></script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --pink: #f14e95;
+      --bg: #0a0a0a;
+      --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+    }
+
+    body {
+      font-size: 1.2rem;
+      font-family: 'Work Sans', sans-serif;
+      min-height: 4000px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      filter: blur();
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .hero h1,
+    .hero h4,
+    .hero p {
+      text-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-family: 'Sacramento', cursive;
+      font-size: 6rem;
+    }
+
+    .hero h4 {
+      font-size: 1.6rem;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+    }
+
+    .hero a {
+      color: var(--pink);
+      background-color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .hero a:hover {
+      background-color: var(--pink);
+      color: white;
+    }
+
+    .mynavbar {
+      background-color: rgba(255, 255, 255, 0.3) !important;
+      backdrop-filter: blur(4px);
+    }
+
+    .mynavbar .offcanvas {
+      height: 100vh;
+    }
+
+    .mynavbar .navbar-brand,
+    .mynavbar .offcanvas-title {
+      font-family: 'Sacramento', cursive;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .mynavbar .nav-link {
+      text-transform: uppercase;
+    }
+
+    .home {
+      background-image: url(img/bg.png);
+      background-size: cover;
+      min-height: 100vh;
+      margin-top: -6rem;
+      padding-top: 15rem;
+      padding-bottom: 5rem;
+    }
+
+    .home h2,
+    .info h2,
+    .story h2,
+    .gallery h2,
+    .rsvp h2,
+    .gifts h2 {
+      color: var(--pink);
+      font-family: 'Sacramento';
+      font-size: 5rem;
+      font-weight: bold;
+    }
+
+    .home h3 {
+      color: #444;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .home p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    .home .couple {
+      margin-top: 100px;
+    }
+
+    .home .couple h3 {
+      font-family: 'Sacramento';
+      font-size: 2.4rem;
+      color: var(--pink);
+    }
+
+    .home .couple img {
+      width: 100%;
+    }
+
+    .home .heart {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      display: flex;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(65px);
+    }
+
+    .home .heart i {
+      margin: auto;
+      color: var(--pink);
+    }
+
+    .info {
+      background-color: var(--bg);
+      color: white;
+      padding-top: 10rem;
+      padding-bottom: 8rem;
+    }
+
+    .info .alamat {
+      font-size: 1.1rem;
+    }
+
+    .info .description {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    .info .card {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      color: white !important;
+      border: 1px solid #999;
+    }
+
+    .info .card-header {
+      border-bottom: 1px solid #999;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+
+    .info .card-body {
+      font-size: 1rem;
+    }
+
+    .info .card-footer {
+      border-top: 1px solid #999;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    .story,
+    .gallery,
+    .rsvp,
+    .gifts {
+      padding-top: 10rem;
+      padding-bottom: 8rem;
+    }
+
+    .story span,
+    .gallery span,
+    .gifts span {
+      text-transform: uppercase;
+      color: #666;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .story p,
+    .gallery p,
+    .rsvp p,
+    .gifts p {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 1.4rem 0;
+      margin-top: 1rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      width: 1px;
+      background-color: #ccc;
+      left: 50%;
+    }
+
+    .timeline li {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .timeline li::before,
+    .timeline li::after {
+      content: '';
+      display: table;
+    }
+
+    .timeline li::after {
+      clear: both;
+    }
+
+    .timeline li .timeline-image {
+      width: 160px;
+      height: 160px;
+      background-color: #ccc;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .timeline li .timeline-panel {
+      width: 40%;
+      float: left;
+      border: 1px solid #ccc;
+      padding: 2rem;
+      position: relative;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    .timeline li .timeline-panel::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      border-top: 15px solid transparent;
+      border-left: 15px solid #ccc;
+      border-right: 0 solid #ccc;
+      border-bottom: 15px solid transparent;
+      top: 80px;
+      right: -15px;
+    }
+
+    .timeline li .timeline-panel::after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      border-top: 14px solid transparent;
+      border-left: 14px solid #fff;
+      border-right: 0 solid #fff;
+      border-bottom: 14px solid transparent;
+      top: 81px;
+      right: -13px;
+    }
+
+    .timeline li.timeline-inverted .timeline-panel {
+      float: right;
+    }
+
+    .timeline li.timeline-inverted .timeline-panel::before {
+      border-left-width: 0;
+      border-right-width: 15px;
+      left: -15px;
+      right: auto;
+    }
+
+    .timeline li.timeline-inverted .timeline-panel::after {
+      border-left-width: 0;
+      border-right-width: 14px;
+      left: -13px;
+      right: auto;
+    }
+
+    .gallery {
+      background-color: #f5f5f5;
+    }
+
+    .rsvp {
+      background-color: var(--bg);
+    }
+
+    .rsvp h2 {
+      font-size: 4.5rem;
+    }
+
+    .rsvp p {
+      color: white;
+    }
+
+    .rsvp form label {
+      color: white;
+    }
+
+    .rsvp button {
+      background-color: var(--pink);
+      color: white;
+      border: 1px solid var(--pink);
+    }
+
+    .rsvp button:hover {
+      background-color: white;
+      color: var(--pink);
+      border: 1px solid white;
+    }
+
+    footer {
+      padding: 3rem;
+      background-color: var(--pink);
+      color: white;
+    }
+
+    footer a {
+      color: var(--bg);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    footer li {
+      list-style: none;
+      display: inline;
+      margin: 0.5rem;
+    }
+
+    .audio-icon-wrapper {
+      width: 4rem;
+      height: 4rem;
+      font-size: 4rem;
+      position: fixed;
+      bottom: 2.5rem;
+      right: 2rem;
+      cursor: pointer;
+      color: white;
+      opacity: 0.5;
+      mix-blend-mode: difference;
+      animation: rotating 4s linear infinite;
+      transform-origin: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 0;
+    }
+
+    @keyframes rotating {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Media Query */
+    /* Extra large */
+    @media (max-width: 1200px) {
+      .home .heart {
+        transform: translateX(-50%) translateY(45px);
+      }
+    }
+
+    /* laptop */
+    @media (max-width: 992px) {
+      html {
+        font-size: 75%;
+      }
+
+      .simply-countdown > .simply-section {
+        padding: 70px;
+      }
+
+      .home .heart {
+        display: none;
+      }
+
+      .timeline::before {
+        left: 60px;
+      }
+
+      .timeline li .timeline-image {
+        left: 15px;
+        margin-left: 45px;
+        top: 16px;
+      }
+
+      .timeline li .timeline-panel {
+        width: calc((100% - 200px));
+        float: right;
+      }
+
+      .timeline li .timeline-panel::before {
+        border-left-width: 0;
+        border-right-width: 15px;
+        left: -15px;
+        right: auto;
+      }
+
+      .timeline li .timeline-panel::after {
+        border-left-width: 0;
+        border-right-width: 14px;
+        left: -13px;
+        right: auto;
+      }
+    }
+
+    /* tablet */
+    @media (max-width: 768px) {
+      html {
+        font-size: 65%;
+      }
+
+      .simply-countdown > .simply-section {
+        padding: 60px;
+        margin: 5px;
+      }
+
+      .mynavbar .nav-link {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .sticky-top {
+        overflow: hidden;
+      }
+
+      .timeline li .timeline-image {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    /* mobile phone */
+    @media (max-width: 576px) {
+      html {
+        font-size: 60%;
+      }
+
+      .simply-countdown > .simply-section {
+        padding: 45px;
+        margin: 3px;
+      }
+
+      .timeline li .timeline-image {
+        width: 80px;
+        height: 80px;
+      }
+
+      .timeline li .timeline-panel {
+        width: 65%;
+        transform: translateX(-20px);
+      }
+
+      .timeline li .timeline-panel::before {
+        top: 30px;
+      }
+
+      .timeline li .timeline-panel::after {
+        top: 31px;
+      }
+    }
+    
+    /* Message Section Styles */
+    .section-messages {
+        padding: 10rem 0 8rem;
+        background-color: white;
+    }
+
+    .section-messages .section-title {
+        color: var(--pink);
+        font-family: 'Sacramento';
+        font-size: 5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-messages .section-title i {
+        margin-right: 1rem;
+    }
+
+    .message-form {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .message-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #666;
+        font-weight: 300;
+        font-size: 1rem;
+    }
+
+    .message-form input,
+    .message-form select,
+    .message-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: 'Work Sans', sans-serif;
+        font-size: 1rem;
+    }
+
+    .message-form textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .btn-primary {
+        background-color: var(--pink);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 600;
+        flex-grow: 1;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #e03e87;
+    }
+
+    .btn-secondary {
+        background-color: white;
+        color: var(--pink);
+        border: 1px solid var(--pink);
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Work Sans', sans-serif;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #f8f8f8;
+    }
+
+    /* Animation */
+    .animate-fadeInUp {
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .delay-1 {
+        animation-delay: 0.3s;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .section-messages {
+            padding: 8rem 0 6rem;
+        }
+        
+        .section-messages .section-title {
+            font-size: 4rem;
+        }
+        
+        .button-group {
+            flex-direction: column;
+        }
+        
+        .btn-secondary,
+        .btn-primary {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .section-messages .section-title {
+            font-size: 3.5rem;
+        }
+        
+        .message-form {
+            padding: 1.5rem;
+        }
+    }
+    /* Comment Section Styles */
+    .comment-container {
+        max-width: 800px;
+        margin: 3rem auto 0;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 0;
+        position: relative;
+        border-left: 4px solid var(--gold);
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    .comment-list {
+        padding: 1.5rem;
+    }
+
+    .comment-item {
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .comment-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        align-items: center;
+    }
+
+    .comment-name {
+        font-weight: 600;
+        color: var(--dark);
+        font-size: 0.9rem;
+    }
+
+    .comment-attendance {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 50px;
+        background: var(--light);
+        color: var(--dark);
+    }
+
+    .comment-attendance.hadir {
+        background: rgba(76, 175, 80, 0.1);
+        color: #4CAF50;
+    }
+
+    .comment-attendance.tidak {
+        background: rgba(244, 67, 54, 0.1);
+        color: #F44336;
+    }
+
+    .comment-text {
+        color: #555;
+        line-height: 1.6;
+        margin: 0.5rem 0;
+        font-size: 0.85rem;
+        text-align: left;
+        padding-right: 1rem;
+    }
+
+    .comment-date {
+        font-size: 0.7rem;
+        color: #999;
+        text-align: right;
+    }
+
+    /* Custom scrollbar */
+    .comment-container::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .comment-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .comment-container::-webkit-scrollbar-thumb {
+        background: #D4AF37;
+        border-radius: 10px;
+    }
+
+    .comment-container::-webkit-scrollbar-thumb:hover {
+        background: #B7950B;
+    }
+
+    .sticker-picker {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sticker-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        max-width: 500px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .sticker-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .sticker-item {
+        font-size: 2rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+        padding: 0.5rem;
+        border-radius: 5px;
+    }
+
+    .sticker-item:hover {
+        background: #f5f5f5;
+        transform: scale(1.1);
+    }
+
+    .close-sticker {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #999;
+    }
+
+    .close-sticker:hover {
+        color: var(--dark);
+    }
+
+    .notification {
+        margin-top: 1rem;
+        padding: 0.8rem;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+        animation: fadeInUp 0.5s ease;
+        background: rgba(76, 175, 80, 0.1);
+        color: #4CAF50;
+        border: 1px solid #4CAF50;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(10px);
+        height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+    .notification.show {
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+        padding: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .btn-loading {
+        position: relative;
+        pointer-events: none;
+    }
+
+    .btn-loading:after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border: 3px solid transparent;
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: button-loading-spinner 1s ease infinite;
+    }
+
+    @keyframes button-loading-spinner {
+        from {
+            transform: rotate(0turn);
+        }
+        to {
+            transform: rotate(1turn);
+        }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="hero"
+    class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
+    <main>
+      <h4>Kepada <span>Bapak/Ibu/Saudara/i, </span></h4>
+      <h1>Reski & Riska</h1>
+      <p>Akan melangsungkan resepsi pernikahan dalam:</p>
+      <div class="simply-countdown"></div>
+      <a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()">Buka Undangan</a>
+    </main>
+
+  </section>
+
+  <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
+    <div class="container">
+      <a class="navbar-brand">UndangIn</a>
+    </div>
+  </nav>
+
+  <section id="home" class="home">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h2>Acara Pernikahan</h2>
+          <h3>Diselenggarakan pada 20 November 2025</h3>
+          <p>Oleh karena itu, dengan segala hormat, kami bermaksud untuk mengundang Bapak/Ibu, Saudara/i, untuk hadir
+            pada acara pernikahan kami. </p>
+        </div>
+      </div>
+
+      <div class="row couple">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-8 text-end">
+              <h3>Reski</h3>
+              <p>Putra dari Bpk. ahmad Dermawan <br> dan <br> Ibu dina Hafizah</p>
+            </div>
+            <div class="col-4">
+              <img src="images/pp5.png" alt="Sandhika Galih" class="img-responsive rounded-circle">
+            </div>
+          </div>
+        </div>
+
+        <span class="heart"><i class="bi bi-heart-fill"></i></span>
+
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-4">
+              <img src="images/pp6.png" alt="Nofariza" class="img-responsive rounded-circle">
+            </div>
+            <div class="col-8">
+              <h3>Riska</h3>
+              <p>Putra dari Bpk. Rahman <br> dan <br> Ibu Sitti Azizah</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="info" class="info">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Informasi Acara</h2>
+          <p class="alamat">Alamat: Grand Ballroom Hotel Mewah<br>Jl. Bahagia No. 456, Kota Baru</p>
+          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3553.61073361546!2d106.83958507445213!3d-6.154684993832428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f59568483273%3A0x30484df944fcc3a4!2sGedung%20Pernikahan%20Graha%20Angkasa%20Pura%201!5e1!3m2!1sen!2ssg!4v1748969968161!5m2!1sen!2ssg" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <a href="https://maps.app.goo.gl/iqhvR4Qy1eRRgYD38" target="_blank" class="btn btn-light btn-sm my-3">Klik untuk
+            membuka peta</a>
+          <p class="description">Diharapkan untuk tidak salah alamat dan tanggal. Manakala tiba di tujuan namun tidak
+            ada tanda-tanda sedang dilangsungkan pernikahan, boleh jadi Anda salah jadwal, atau salah tempat.</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-5 col-10">
+          <div class="card text-center text-bg-light mb-5">
+            <div class="card-header">Akad Nikah</div>
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <i class="bi bi-clock d-block"></i>
+                  <span>08.00 - 10.00</span>
+                </div>
+                <div class="col-md-6">
+                  <i class="bi bi-calendar3 d-block"></i>
+                  <span>Minggu, 20 November 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              Saat acara akad diharapkan untuk kondusif menjaga kekhidmatan dan kekhusyuan seluruh prosesi.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-10">
+          <div class="card text-center text-bg-light">
+            <div class="card-header">Resepsi</div>
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <i class="bi bi-clock d-block"></i>
+                  <span>11.00 - selesai</span>
+                </div>
+                <div class="col-md-6">
+                  <i class="bi bi-calendar3 d-block"></i>
+                  <span>Minggu, 20 November 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              Saat acara akad diharapkan untuk kondusif menjaga kekhidmatan dan kekhusyuan seluruh prosesi.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="story">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <span>Bagaimana Cinta Kami Bersemi</span>
+          <h2>Cerita Kami</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro, similique non soluta nulla asperiores
+            voluptatem.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-image" style="background-image: url(img/sman23.jpg);"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Pertama Bertemu</h3>
+                  <span>1 Juni 2000</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, modi autem? Commodi autem quo quia?
+                  </p>
+                </div>
+              </div>
+
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image" style="background-image: url(https://picsum.photos/300/300);"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Mulai Serius</h3>
+                  <span>1 Januari 2005</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto enim eaque obcaecati odit
+                    itaque explicabo quisquam quos at.
+                  </p>
+                </div>
+              </div>
+
+            </li>
+            <li>
+              <div class="timeline-image" style="background-image: url(https://picsum.photos/301/301);"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Tunangan</h3>
+                  <span>7 November 2009</span>
+                </div>
+                <div class="timeline-body">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, deleniti distinctio. Esse quas sit
+                  explicabo corporis magni qui expedita a.
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <span>Memori Kisah Kami</span>
+          <h2>Galeri Foto</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, itaque?</p>
+        </div>
+      </div>
+
+      <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
+        <div class="col mt-3">
+          <a href="img/gallery/1.png" data-toggle="lightbox" data-caption="Reski & Riska 1" data-gallery="mygallery">
+            <img src="img/gallery/thumbnail/1.png" alt="Sandhika & Nofa 1" class="img-fluid w-100 rounded">
+          </a>
+        </div>
+        <div class="col mt-3">
+          <a href="img/gallery/2.png" data-toggle="lightbox" data-caption="Reski & Riska 2" data-gallery="mygallery">
+            <img src="img/gallery/thumbnail/2.png" alt="Sandhika & Nofa 1" class="img-fluid w-100 rounded">
+          </a>
+        </div>
+        <div class="col mt-3">
+          <a href="img/gallery/3.png" data-toggle="lightbox" data-caption="Reski & Riska 3" data-gallery="mygallery">
+            <img src="img/gallery/thumbnail/3.png" alt="Sandhika & Nofa 1" class="img-fluid w-100 rounded">
+          </a>
+        </div>
+        <div class="col mt-3">
+          <a href="img/gallery/4.png" data-toggle="lightbox" data-caption="Reski & Riska 4" data-gallery="mygallery">
+            <img src="img/gallery/thumbnail/4.png" alt="Sandhika & Nofa 1" class="img-fluid w-100 rounded">
+          </a>
+        </div>
+        <div class="col mt-3">
+          <a href="img/gallery/5.png" data-toggle="lightbox" data-caption="Reski & Riska 5" data-gallery="mygallery">
+            <img src="img/gallery/thumbnail/5.png" alt="Sandhika & Nofa 1" class="img-fluid w-100 rounded">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gifts" class="gifts">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <span>ungkapan tanda kasih</span>
+          <h2>Kirim Hadiah</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam iure perferendis provident ab aliquam nemo.
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center text-center">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="fw-bold">BCA</div>
+              123456789 - RESKI
+            </li>
+            <li class="list-group-item">
+              <div class="fw-bold">MANDIRI</div>
+              987654321 - RESKI
+            </li>
+            <li class="list-group-item">
+              <div class="fw-bold">Saweria</div>
+              <img src="img/saweria.png" alt="Saweria QR" class="img-thumbnail" width="150">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-messages">
+      <h2 class="section-title animate-fadeInUp"><i class="fas fa-comments"></i> Ucapan & Doa</h2>
+
+      <!-- Form Ucapan -->
+      <div class="message-form animate-fadeInUp delay-1">
+          <form id="commentForm">
+              <label for="name">Nama</label>
+              <input type="text" id="name" required placeholder="Masukkan nama Anda">
+
+              <label for="attendance">Konfirmasi Kehadiran</label>
+              <select id="attendance" required>
+                  <option value="hadir">Saya berencana hadir</option>
+                  <option value="tidak">Maaf saya tidak bisa hadir</option>
+              </select>
+
+              <label for="comment">Pesan</label>
+              <textarea id="comment" required placeholder="Tulis ucapan dan doa untuk mempelai..."></textarea>
+
+              <div class="button-group">
+                  <button type="button" class="btn-secondary" id="stickerBtn"><i class="far fa-smile"></i> Tambah Stiker</button>
+                  <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Kirim Ucapan</button>
+              </div>
+              <div class="notification" id="notification"></div>
+          </form>
+      </div>
+
+      <!-- Daftar Komentar -->
+      <div class="comment-container">
+          <div class="comment-list" id="commentList">
+              <!-- Komentar akan muncul di sini -->
+          </div>
+      </div>
+
+      <!-- Sticker Picker Modal -->
+      <div class="sticker-picker" id="stickerPicker">
+          <div class="sticker-container">
+              <span class="close-sticker" id="closeSticker">&times;</span>
+              <h3>Pilih Stiker</h3>
+              <div class="sticker-grid">
+                  <div class="sticker-item" data-sticker="❤️">❤️</div>
+                  <div class="sticker-item" data-sticker="😊">😊</div>
+                  <div class="sticker-item" data-sticker="🎉">🎉</div>
+                  <div class="sticker-item" data-sticker="💐">💐</div>
+                  <div class="sticker-item" data-sticker="🥂">🥂</div>
+                  <div class="sticker-item" data-sticker="✨">✨</div>
+                  <div class="sticker-item" data-sticker="🎊">🎊</div>
+                  <div class="sticker-item" data-sticker="💖">💖</div>
+                  <div class="sticker-item" data-sticker="👰">👰</div>
+                  <div class="sticker-item" data-sticker="🤵">🤵</div>
+                  <div class="sticker-item" data-sticker="💑">💑</div>
+                  <div class="sticker-item" data-sticker="🎁">🎁</div>
+                  <div class="sticker-item" data-sticker="🥳">🥳</div>
+                  <div class="sticker-item" data-sticker="🙏">🙏</div>
+                  <div class="sticker-item" data-sticker="😍">😍</div>
+                  <div class="sticker-item" data-sticker="💕">💕</div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <small class="block">&copy; 2025 UndangIn. All Rights Reserved.</small>
+          <small class="block">Design by <a href="https://www.instagram.com/_undangin_">@UndangIn</a>.</small>
+
+          <ul class="mt-3">
+            <li><a href="https://www.instagram.com/_undangin_"><i class="bi bi-instagram"></i></a></li>
+            <li><a href="https://www.tiktok.com/@_undangin_"><i class="bi bi-tiktok"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="audio-container">
+    <audio id="song" autoplay loop>
+      <source src="music/musik2.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="audio-icon-wrapper" style="display: none;">
+      <i class="bi bi-disc"></i>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
+
+  <script>
+    simplyCountdown('.simply-countdown', {
+      year: 2025, // required
+      month: 11, // required
+      day: 20, // required
+      hours: 8, // Default is 0 [0-23] integer
+      words: { //words displayed into the countdown
+        days: { singular: 'hari', plural: 'hari' },
+        hours: { singular: 'jam', plural: 'jam' },
+        minutes: { singular: 'menit', plural: 'menit' },
+        seconds: { singular: 'detik', plural: 'detik' }
+      },
+    });
+  </script>
+
+  <script>
+    const stickyTop = document.querySelector('.sticky-top');
+    const offcanvas = document.querySelector('.offcanvas');
+
+    offcanvas.addEventListener('show.bs.offcanvas', function () {
+      stickyTop.style.overflow = 'visible';
+    });
+
+    offcanvas.addEventListener('hidden.bs.offcanvas', function () {
+      stickyTop.style.overflow = 'hidden';
+    });
+
+  </script>
+
+  <script>
+    const rootElement = document.querySelector(":root");
+    const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+    const audioIcon = document.querySelector('.audio-icon-wrapper i');
+    const song = document.querySelector('#song');
+    let isPlaying = false;
+
+    function disableScroll() {
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+      window.onscroll = function () {
+        window.scrollTo(scrollTop, scrollLeft);
+      }
+
+      rootElement.style.scrollBehavior = 'auto';
+    }
+
+    function enableScroll() {
+      window.onscroll = function () { }
+      rootElement.style.scrollBehavior = 'smooth';
+      // localStorage.setItem('opened', 'true');
+      playAudio();
+    }
+
+    function playAudio() {
+      song.volume = 0.1;
+      audioIconWrapper.style.display = 'flex';
+      song.play();
+      isPlaying = true;
+    }
+
+    audioIconWrapper.onclick = function () {
+      if (isPlaying) {
+        song.pause();
+        audioIcon.classList.remove('bi-disc');
+        audioIcon.classList.add('bi-pause-circle');
+      } else {
+        song.play();
+        audioIcon.classList.add('bi-disc');
+        audioIcon.classList.remove('bi-pause-circle');
+      }
+
+      isPlaying = !isPlaying;
+    }
+
+    // if (!localStorage.getItem('opened')) {
+    //   disableScroll();
+    // }
+    disableScroll();
+  </script>
+  <script>
+    window.addEventListener("load", function () {
+      const form = document.getElementById('my-form');
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const action = e.target.action;
+        fetch(action, {
+          method: 'POST',
+          body: data,
+        })
+          .then(() => {
+            alert("Konfirmasi kehadiran berhasil terkirim!");
+          })
+      });
+    });
+
+  </script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const nama = urlParams.get('n') || '';
+    const pronoun = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
+    const namaContainer = document.querySelector('.hero h4 span');
+    namaContainer.innerText = `${pronoun} ${nama},`.replace(/ ,$/, ',');
+
+    document.querySelector('#nama').value = nama;
+  </script>
+  <script>
+      // Konfigurasi Google Sheets API
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMzxL3NTnOzChj9tvAmbfODgJQjBC_gM6nhOyxr4OLpz6JVWU5a5-keEy6SqG9ygM6iw/exec';
+
+      // Fungsi Komentar
+      document.addEventListener('DOMContentLoaded', function() {
+          // Load komentar dari Google Sheets
+          loadComments();
+          
+          // Form submission
+          document.getElementById('commentForm').addEventListener('submit', async function(e) {
+              e.preventDefault();
+              
+              const name = document.getElementById('name').value.trim();
+              const attendance = document.getElementById('attendance').value;
+              const commentText = document.getElementById('comment').value.trim();
+              const submitBtn = this.querySelector('button[type="submit"]');
+              const notification = document.getElementById('notification');
+              
+              if (name && commentText) {
+                  try {
+                      // Tampilkan loading
+                      submitBtn.innerHTML = '';
+                      submitBtn.classList.add('btn-loading');
+                      submitBtn.disabled = true;
+                      
+                      const formData = new FormData();
+                      formData.append('name', name);
+                      formData.append('attendance', attendance);
+                      formData.append('comment', commentText);
+                      
+                      const response = await fetch(SCRIPT_URL, {
+                          method: 'POST',
+                          body: formData
+                      });
+                      
+                      const result = await response.json();
+                      
+                      if (result.status === "success") {
+                          // Reset form
+                          this.reset();
+                          
+                          // Tampilkan notifikasi
+                          notification.textContent = 'Ucapan Anda telah terkirim! Terima kasih.';
+                          notification.classList.add('show');
+
+                          // Sembunyikan notifikasi setelah 3 detik
+                          setTimeout(() => {
+                              notification.classList.remove('show');
+                          }, 3000);
+                          
+                          // Reload komentar
+                          loadComments();
+                      } else {
+                          throw new Error(result.message || 'Gagal menyimpan data');
+                      }
+                  } catch (error) {
+                      console.error('Error:', error);
+                      notification.textContent = 'Gagal mengirim ucapan: ' + error.message;
+                      notification.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
+                      notification.style.color = '#F44336';
+                      notification.style.borderColor = '#F44336';
+                      notification.classList.add('show');
+                      
+                      setTimeout(() => {
+                          notification.classList.remove('show');
+                      }, 3000);
+                  } finally {
+                      // Kembalikan tombol ke keadaan semula
+                      submitBtn.classList.remove('btn-loading');
+                      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Ucapan';
+                      submitBtn.disabled = false;
+                  }
+              }
+          });
+          
+          // Fungsi untuk memuat komentar dari Google Sheets
+          async function loadComments() {
+              try {
+                  const response = await fetch(`${SCRIPT_URL}?t=${Date.now()}`);
+                  const result = await response.json();
+                  
+                  if (result.status === "success") {
+                      updateCommentList(result.comments);
+                  } else {
+                      throw new Error(result.message || 'Gagal memuat komentar');
+                  }
+              } catch (error) {
+                  console.error('Error loading comments:', error);
+                  document.getElementById('commentList').innerHTML = 
+                      '<p style="text-align: center; color: #666;">Gagal memuat komentar. Silakan refresh halaman.</p>';
+              }
+          }
+          
+          // Sticker picker functionality
+          const stickerBtn = document.getElementById('stickerBtn');
+          const stickerPicker = document.getElementById('stickerPicker');
+          const closeSticker = document.getElementById('closeSticker');
+          const stickerItems = document.querySelectorAll('.sticker-item');
+          const commentField = document.getElementById('comment');
+          
+          stickerBtn.addEventListener('click', function() {
+              stickerPicker.style.display = 'flex';
+          });
+          
+          closeSticker.addEventListener('click', function() {
+              stickerPicker.style.display = 'none';
+          });
+          
+          stickerItems.forEach(item => {
+              item.addEventListener('click', function() {
+                  const sticker = this.getAttribute('data-sticker');
+                  commentField.value += sticker;
+                  stickerPicker.style.display = 'none';
+                  commentField.focus();
+              });
+          });
+          
+          stickerPicker.addEventListener('click', function(e) {
+              if (e.target === this) {
+                  this.style.display = 'none';
+              }
+          });
+      });
+
+      // Fungsi untuk memperbarui daftar komentar
+      function updateCommentList(comments) {
+          const commentList = document.getElementById('commentList');
+
+          if (comments.length === 0) {
+              commentList.innerHTML = '<p style="text-align: center; color: #666;">Belum ada ucapan. Jadilah yang pertama mengirimkan ucapan!</p>';
+              return;
+          }
+
+          commentList.innerHTML = '';
+
+          comments.forEach(comment => {
+              const commentItem = document.createElement('div');
+              commentItem.className = 'comment-item';
+
+              const attendanceClass = comment.attendance === 'hadir' ? 'hadir' : 'tidak';
+              const attendanceText = comment.attendance === 'hadir' ? 'Hadir' : 'Tidak Hadir';
+
+              // Konversi tanggal ke format Indonesia dan zona waktu WITA
+              const dateObj = new Date(comment.date);
+              const formattedDate = new Intl.DateTimeFormat('id-ID', {
+                  timeZone: 'Asia/Makassar', // Zona WITA
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+              }).format(dateObj);
+
+              commentItem.innerHTML = `
+                  <div class="comment-header">
+                      <span class="comment-name">${comment.name}</span>
+                      <span class="comment-attendance ${attendanceClass}">${attendanceText}</span>
+                  </div>
+                  <p class="comment-text">${comment.text}</p>
+                  <div class="comment-date">${formattedDate}</div>
+              `;
+
+              commentList.appendChild(commentItem);
+          });
+      }
+  </script>
+</body>
+
+</html>
