@@ -18,26 +18,27 @@
             --light: #F7F9FC;
             --dark: #2E2E3A;
             --text: #4A4A4A;
-            --soft-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --strong-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --soft-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --strong-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--text);
             background-color: var(--light);
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: 14px;
         }
-        
-        /* Cover Page - New Design */
+
+        /* Cover Page */
         .cover-page {
             height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), 
@@ -51,159 +52,162 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .invitation-container {
             position: relative;
             z-index: 3;
-            padding: 2rem;
-            max-width: 600px;
+            padding: 1rem;
             width: 90%;
+            max-width: 320px;
             perspective: 1000px;
         }
-        
-        .invitation-card {
-            border-radius: 20px;
-            padding: 4rem 2rem;
+
+        .couple-photo-small {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 0.8rem;
+            margin-top: 0.8rem;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .couple-photo-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .envelope {
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            padding: 2rem 1rem;
             position: relative;
             background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(8px);
             color: white;
             transform-style: preserve-3d;
-            transition: all 0.5s ease;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
         }
-        
-        .invitation-card::before {
+
+        .envelope:hover {
+            transform: translateY(-3px) rotateX(3deg) rotateY(3deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .envelope:before, .envelope:after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
-            transform: rotate(30deg);
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            top: 8px;
+            left: 8px;
             z-index: -1;
+            border-radius: 5px;
+            opacity: 0.7;
         }
-        
-        .invitation-card:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 35px 60px rgba(0, 0, 0, 0.4);
-        }
-        
+
         .title {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
             color: var(--accent);
-            letter-spacing: 1px;
+            letter-spacing: 3px;
             font-weight: 500;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-        
+
         .couple-name {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            margin: 1.5rem 0;
+            font-size: 2.2rem;
+            margin: 1rem 0;
             color: white;
             line-height: 1.1;
             font-weight: 600;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-            position: relative;
-            display: inline-block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-        
-        .couple-name::after {
+
+        .hikmah {
+            font-family: 'Dancing Script', cursive;
+            margin: 0.4rem 0;
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            position: relative;
+            display: block;
+        }
+
+        .hikmah:before, .hikmah:after {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            
-            border-radius: 3px;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+            top: 50%;
         }
 
-        /* Tambahan CSS untuk perbaikan */
-        .couple-info {
-            text-align: center;
+        .hikmah:before {
+            left: -25px;
         }
-        
-        .bride, .groom {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+
+        .hikmah:after {
+            right: -25px;
         }
-        
-        .gift-detail {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 1rem;
-            align-items: center;
-        }
-        
-        .gift-label {
-            text-align: left;
-        }
-        
-        .gift-value {
-            text-align: right;
-            word-break: break-word;
-        }        
 
         .to {
-            margin: 2.5rem 0;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
             position: relative;
             display: block;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 300;
         }
-        
+
         .to:before, .to:after {
             content: '✽';
             position: absolute;
-            width: 30px;
+            width: 20px;
             height: 1px;
             color: var(--accent);
             top: 50%;
             transform: translateY(-50%);
-            font-size: 1.2rem;
+            font-size: 0.9rem;
         }
-        
+
         .to:before {
-            left: -40px;
+            left: -25px;
         }
-        
+
         .to:after {
-            right: -40px;
+            right: -25px;
         }
-        
+
         .guest-name {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 1.3rem;
             border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
-            margin: 1.5rem;
+            padding-bottom: 0.4rem;
+            margin: 1rem;
             display: block;
             letter-spacing: 1px;
             font-weight: 500;
             color: white;
         }
-        
+
         .btn-open {
             background: transparent;
             color: white;
             border: 2px solid white;
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
-            margin-top: 3rem;
+            padding: 0.8rem 2rem;
+            font-size: 0.9rem;
+            margin-top: 2rem;
             cursor: pointer;
-            transition: all 0.4s ease;
-            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
             border-radius: 50px;
@@ -212,14 +216,14 @@
             text-transform: uppercase;
             font-weight: 600;
         }
-        
+
         .btn-open:hover {
             background: white;
             color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
         }
-        
+
         .btn-open:before {
             content: '';
             position: absolute;
@@ -227,55 +231,55 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: 0.5s;
         }
-        
+
         .btn-open:hover:before {
             left: 100%;
         }
-        
-        /* Floating Elements - Enhanced */
+
+        /* Floating Elements */
         .floating-element {
             position: absolute;
             opacity: 0;
             z-index: 2;
             animation: float 15s infinite linear;
-            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1));
             pointer-events: none;
         }
-        
+
         @keyframes float {
             0% {
                 transform: translateY(0) rotate(0deg) scale(0.8);
                 opacity: 0;
             }
             10% {
-                opacity: 0.8;
+                opacity: 0.6;
             }
             90% {
-                opacity: 0.8;
+                opacity: 0.6;
             }
             100% {
-                transform: translateY(-100vh) rotate(360deg) scale(1.2);
+                transform: translateY(-100vh) rotate(360deg) scale(1.1);
                 opacity: 0;
             }
         }
-        
+
         /* Confetti Effect */
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background-color: var(--accent);
             opacity: 0;
             z-index: 10;
             animation: confetti-fall 5s linear forwards;
         }
-        
+
         @keyframes confetti-fall {
             0% {
-                transform: translateY(-100px) rotate(0deg);
+                transform: translateY(-80px) rotate(0deg);
                 opacity: 1;
             }
             100% {
@@ -283,13 +287,13 @@
                 opacity: 0;
             }
         }
-        
-        /* Main Content - New Design */
+
+        /* Main Content */
         .main-content {
             display: none;
         }
-        
-        /* Section 1: Hero with Timer - Redesigned */
+
+        /* Section 1: Hero with Timer */
         .section-hero {
             min-height: 100vh;
             display: flex;
@@ -297,55 +301,52 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
                         url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: white;
             position: relative;
             overflow: hidden;
         }
-        
+
         .couple-photo {
-            width: 250px;
-            height: 250px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid white;
-            margin-bottom: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease;
-            position: relative;
-            z-index: 3;
+            border: 4px solid white;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
-        
+
         .couple-photo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 50px rgba(255, 255, 255, 0.2);
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
         }
-        
+
         .couple-photo::after {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
             border: 2px solid var(--accent);
             border-radius: 50%;
             animation: pulse 2s infinite;
             pointer-events: none;
         }
-        
+
         @keyframes pulse {
             0% {
                 transform: scale(0.95);
                 opacity: 0.7;
             }
             70% {
-                transform: scale(1.1);
+                transform: scale(1.05);
                 opacity: 0.3;
             }
             100% {
@@ -353,291 +354,286 @@
                 opacity: 0.7;
             }
         }
-        
+
         .couple-names {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
             color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            position: relative;
-            display: inline-block;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             font-weight: 600;
         }
-        
+
         .couple-names:after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
+            width: 80px;
+            height: 2px;
             background: var(--accent);
-            border-radius: 3px;
+            border-radius: 2px;
         }
-        
+
         .wedding-date {
-            font-size: 1.8rem;
-            letter-spacing: 3px;
-            margin-bottom: 3rem;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
             font-weight: 300;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            text-transform: uppercase;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-        
+
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin: 3rem 0;
+            gap: 0.5rem;
             flex-wrap: wrap;
+            max-width: 300px;
+            margin: 0 auto;
         }
-        
+
         .countdown-item {
             background: rgba(255, 255, 255, 0.15);
             color: white;
-            padding: 2rem 1.5rem;
-            border-radius: 15px;
-            min-width: 120px;
-            backdrop-filter: blur(10px);
+            padding: 0.5rem;
+            border-radius: 5px;
+            min-width: 60px;
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             box-shadow: var(--soft-shadow);
         }
-        
+
         .countdown-item:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
         }
-        
+
         .countdown-number {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 600;
             color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-        
+
         .countdown-label {
-            font-size: 1rem;
+            font-size: 0.6rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 0.5rem;
+            letter-spacing: 1px;
+            margin-top: 0.2rem;
             font-weight: 500;
             color: var(--accent);
         }
-        
-        /* Section 2: Couple Introduction - Redesigned */
+
+        /* Section 2: Couple Introduction */
         .section-couple {
-            padding: 8rem 2rem;
+            padding: 4rem 1.5rem;
             text-align: center;
             background-color: white;
             position: relative;
             overflow: hidden;
         }
-        
+
         .section-couple::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 10px;
+            height: 6px;
             background: var(--gradient);
             z-index: 1;
         }
-        
+
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             position: relative;
             display: inline-block;
             font-weight: 600;
         }
-        
+
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
+            width: 80px;
+            height: 2px;
             background: var(--gradient);
-            border-radius: 3px;
+            border-radius: 2px;
         }
-        
+
         .opening-message {
-            max-width: 800px;
-            margin: 0 auto 4rem;
-            line-height: 1.8;
-            font-size: 1.3rem;
+            max-width: 100%;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+            font-size: 1rem;
             color: var(--text);
+            padding: 0 1rem;
         }
-        
+
         .couple-info {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 5rem;
-            margin-top: 5rem;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 3rem;
             position: relative;
         }
-        
+
         .bride, .groom {
             flex: 1;
-            min-width: 300px;
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
             position: relative;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             box-shadow: var(--soft-shadow);
-            border-top: 5px solid var(--primary);
+            border-top: 4px solid var(--primary);
+            margin: 0 auto;
+            width: 100%;
+            max-width: 300px;
         }
-        
+
         .bride:hover, .groom:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(139, 95, 191, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(139, 95, 191, 0.15);
         }
-        
+
         .couple-portrait {
-            width: 250px;
-            height: 250px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 2rem;
-            border: 5px solid var(--primary-light);
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--primary-light);
             box-shadow: var(--soft-shadow);
-            transition: all 0.5s ease;
-            position: relative;
+            transition: all 0.3s ease;
         }
-        
+
         .couple-portrait:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(139, 95, 191, 0.3);
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(139, 95, 191, 0.2);
         }
-        
+
         .couple-name {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
             color: var(--primary);
             font-weight: 600;
         }
-        
+
         .parents-name {
             font-style: italic;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             color: var(--text);
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
-        
-        /* Section 3: Event Schedule - Redesigned */
+
+        /* Section 3: Event Schedule */
         .section-events {
-            padding: 8rem 2rem;
+            padding: 4rem 1.5rem;
             background-color: var(--light);
             text-align: center;
             position: relative;
         }
-        
+
         .section-events::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 10px;
+            height: 6px;
             background: var(--gradient);
             z-index: 1;
         }
-        
+
         .events-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 5rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
             position: relative;
             z-index: 2;
         }
-        
+
         .event-card {
-            flex: 1;
-            min-width: 350px;
             background: white;
-            padding: 4rem 3rem;
-            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
             box-shadow: var(--soft-shadow);
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border-top: 5px solid var(--secondary);
+            border-top: 4px solid var(--secondary);
+            margin: 0 auto;
+            width: 100%;
+            max-width: 300px;
         }
-        
+
         .event-card:before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 4px;
             background: var(--secondary);
             z-index: 1;
         }
-        
+
         .event-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(255, 126, 95, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 126, 95, 0.15);
         }
-        
+
         .event-icon {
-            font-size: 4rem;
+            font-size: 3rem;
             color: var(--secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             transition: all 0.3s ease;
         }
-        
+
         .event-card:hover .event-icon {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
-        
+
         .event-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
         }
-        
+
         .event-date, .event-time, .event-location {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--text);
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
-        
+
         .event-date {
             font-weight: 600;
             color: var(--dark);
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
-        
+
         .event-location {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             font-weight: 500;
             color: var(--dark);
             line-height: 1.6;
         }
-        
-        /* Section 4: Guest Messages - Redesigned */
+
+        /* Section 4: Guest Messages */
         .section-messages {
-            padding: 8rem 2rem;
+            padding: 4rem 1.5rem;
             background-color: var(--light);
             text-align: center;
             position: relative;
@@ -649,26 +645,26 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 10px;
+            height: 6px;
             background: var(--gradient);
             z-index: 1;
         }
 
         .message-form {
-            max-width: 700px;
-            margin: 4rem auto;
-            padding: 3rem;
+            max-width: 100%;
+            margin: 2rem auto;
+            padding: 1.5rem;
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             box-shadow: var(--soft-shadow);
             text-align: left;
-            border-top: 5px solid var(--primary);
+            border-top: 4px solid var(--primary);
             position: relative;
             transition: all 0.3s ease;
         }
 
         .message-form:hover {
-            box-shadow: 0 15px 40px rgba(139, 95, 191, 0.15);
+            box-shadow: 0 8px 25px rgba(139, 95, 191, 0.1);
         }
 
         .message-form:before {
@@ -677,27 +673,27 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 4px;
             background: var(--primary);
             z-index: 1;
         }
 
         .message-form label {
             display: block;
-            margin: 1.5rem 0 0.8rem;
+            margin: 1rem 0 0.5rem;
             font-weight: 600;
             color: var(--dark);
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
         .message-form input,
         .message-form textarea {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #eee;
-            border-radius: 10px;
+            padding: 0.8rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
         }
 
@@ -705,23 +701,23 @@
         .message-form textarea:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 4px rgba(139, 95, 191, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 95, 191, 0.1);
         }
 
         .message-form textarea {
-            min-height: 150px;
+            min-height: 120px;
             resize: vertical;
         }
 
         .button-group {
             display: flex;
             justify-content: flex-end;
-            margin-top: 2rem;
-            gap: 1.5rem;
+            margin-top: 1.5rem;
+            gap: 1rem;
         }
 
         .btn-primary {
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
@@ -730,64 +726,64 @@
             background: var(--gradient);
             color: white;
             flex: 1;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            box-shadow: 0 5px 15px rgba(139, 95, 191, 0.3);
+            box-shadow: 0 3px 10px rgba(139, 95, 191, 0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(139, 95, 191, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 95, 191, 0.3);
             background: linear-gradient(135deg, var(--primary-light), var(--secondary));
         }
 
         .comment-list {
-            max-width: 900px;
-            margin: 4rem auto 0;
+            max-width: 100%;
+            margin: 2rem auto 0;
             text-align: left;
         }
 
         .comment-item {
             background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             position: relative;
-            border-left: 5px solid var(--primary);
+            border-left: 4px solid var(--primary);
             transition: all 0.3s ease;
         }
 
         .comment-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(139, 95, 191, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 95, 191, 0.1);
         }
 
         .comment-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             align-items: center;
         }
 
         .comment-name {
             font-weight: 700;
             color: var(--dark);
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
 
         .comment-text {
             color: var(--text);
-            line-height: 1.8;
-            margin-top: 1rem;
-            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
         }
 
         .comment-date {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #999;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             text-align: right;
         }
 
@@ -795,19 +791,19 @@
             background: var(--gradient);
             color: white;
             border: none;
-            padding: 0.6rem 1.2rem;
-            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            margin-top: 0.8rem;
             cursor: pointer;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: all 0.3s ease;
             font-weight: 600;
-            box-shadow: 0 3px 10px rgba(139, 95, 191, 0.3);
+            box-shadow: 0 2px 8px rgba(139, 95, 191, 0.2);
         }
 
         .delete-comment:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(139, 95, 191, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 95, 191, 0.3);
         }
 
         /* Loading Overlay */
@@ -826,10 +822,10 @@
         }
 
         .loading-spinner {
-            width: 70px;
-            height: 70px;
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid var(--accent);
+            width: 50px;
+            height: 50px;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 6px solid var(--accent);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -841,20 +837,21 @@
 
         .notification {
             position: fixed;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--gradient);
             color: white;
-            padding: 18px 30px;
+            padding: 12px 20px;
             border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             z-index: 1000;
             display: none;
-            animation: fadeInUp 0.5s ease forwards;
+            animation: fadeInUp 0.3s ease forwards;
             font-weight: 600;
             max-width: 90%;
             text-align: center;
+            font-size: 0.9rem;
         }
 
         .btn-submit {
@@ -864,20 +861,20 @@
         .btn-submit .loading {
             display: none;
             position: absolute;
-            right: 15px;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
-            width: 25px;
-            height: 25px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid white;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
 
-        /* Section 5: Digital Gifts - Redesigned */
+        /* Section 5: Digital Gifts */
         .section-gifts {
-            padding: 8rem 2rem;
+            padding: 3rem 1.5rem;
             background-color: white;
             text-align: center;
             position: relative;
@@ -889,26 +886,26 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 10px;
+            height: 6px;
             background: var(--gradient);
             z-index: 1;
         }
 
         .gift-container {
-            max-width: 900px;
-            margin: 4rem auto 0;
+            max-width: 100%;
+            margin: 2rem auto 0;
             background: white;
-            border-radius: 20px;
+            border-radius: 10px;
             box-shadow: var(--soft-shadow);
-            padding: 3.5rem;
-            border-top: 5px solid var(--primary);
+            padding: 1.5rem;
+            border-top: 4px solid var(--primary);
             position: relative;
             text-align: left;
             transition: all 0.3s ease;
         }
 
         .gift-container:hover {
-            box-shadow: 0 20px 50px rgba(139, 95, 191, 0.15);
+            box-shadow: 0 10px 30px rgba(139, 95, 191, 0.1);
         }
 
         .gift-container:before {
@@ -917,69 +914,68 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 4px;
             background: var(--primary);
             z-index: 1;
         }
 
         .gift-intro {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             color: var(--text);
-            line-height: 1.8;
-            font-size: 1.2rem;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         .gift-methods {
             display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            margin-top: 3rem;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .gift-method {
             flex: 1;
-            min-width: 350px;
-            padding: 2.5rem;
-            border-radius: 20px;
+            padding: 1.5rem;
+            border-radius: 15px;
             background: white;
-            border: 2px solid #f0f0f0;
+            border: 1px solid #f0f0f0;
             transition: all 0.3s ease;
             position: relative;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .gift-method:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 95, 191, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 95, 191, 0.1);
             border-color: var(--primary-light);
         }
 
         .gift-method-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 1.3rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            font-weight: 600;
+            gap: 0.8rem;
+            font-weight: 500;
         }
 
         .gift-method-icon {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--secondary);
         }
 
         .gift-detail {
-            margin: 1.5rem 0;
-            padding: 1rem;
+            margin: 1rem 0;
+            padding: 0.8rem;
             background: var(--light);
-            border-radius: 12px;
+            border-radius: 8px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 4px;
             align-items: center;
-            transition: all 0.3s ease;
         }
 
         .gift-detail:hover {
@@ -989,70 +985,70 @@
         .gift-label {
             font-weight: 600;
             color: var(--dark);
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
         .gift-value {
             font-weight: 700;
             color: var(--primary);
             word-break: break-all;
-            text-align: right;
-            font-size: 1.1rem;
+            text-align: left;
+            font-size: 0.9rem;
         }
 
         .copy-btn {
             background: var(--gradient);
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1.2rem;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.8rem;
-            margin: 2rem auto 0;
+            gap: 0.5rem;
+            margin: 1.5rem auto 0;
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(139, 95, 191, 0.3);
+            box-shadow: 0 3px 10px rgba(139, 95, 191, 0.2);
             width: 100%;
         }
 
         .copy-btn:hover {
             background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(139, 95, 191, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 95, 191, 0.3);
         }
 
         .copy-btn.copied {
             background: #4CAF50;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.2);
         }
 
         .gift-note {
-            margin-top: 3rem;
-            font-size: 1rem;
+            margin-top: 2rem;
+            font-size: 0.8rem;
             color: #777;
             text-align: center;
             font-style: italic;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         .qr-code {
-            width: 180px;
-            height: 180px;
-            margin: 1.5rem auto;
+            width: 140px;
+            height: 140px;
+            margin: 1rem auto;
             background: white;
-            padding: 1rem;
-            border: 2px solid #eee;
-            border-radius: 12px;
+            padding: 0.8rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
 
         .qr-code:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .qr-code img {
@@ -1061,395 +1057,184 @@
             object-fit: contain;
         }
 
-        /* Footer - Redesigned */
+        /* Footer */
         .footer {
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
             position: relative;
             overflow: hidden;
         }
-        
+
         .footer::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 10px;
+            height: 6px;
             background: var(--gradient);
             z-index: 1;
         }
-        
+
         .footer-text {
-            max-width: 700px;
+            max-width: 100%;
             margin: 0 auto;
-            line-height: 1.8;
-            font-size: 1.3rem;
+            line-height: 1.7;
+            font-size: 1rem;
             position: relative;
             z-index: 2;
         }
-        
+
         .signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            margin-top: 3rem;
+            font-size: 2.2rem;
+            margin-top: 2rem;
             color: var(--accent);
             position: relative;
             z-index: 2;
             font-weight: 600;
         }
-        
-        /* Floating Music Player - Redesigned */
+
+        /* Floating Music Player */
         .music-player {
             position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 70px;
-            height: 70px;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
             background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             cursor: pointer;
             z-index: 100;
-            box-shadow: 0 15px 35px rgba(139, 95, 191, 0.4);
+            box-shadow: 0 8px 25px rgba(139, 95, 191, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .music-player:hover {
-            transform: scale(1.1);
-            box-shadow: 0 20px 40px rgba(139, 95, 191, 0.6);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(139, 95, 191, 0.4);
         }
-        
+
         /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .animate-fadeInUp {
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 0.8s ease forwards;
         }
-        
+
         .delay-1 {
             animation-delay: 0.2s;
         }
-        
+
         .delay-2 {
             animation-delay: 0.4s;
         }
-        
+
         .delay-3 {
             animation-delay: 0.6s;
         }
-        
+
         .delay-4 {
             animation-delay: 0.8s;
         }
-        
-    /* Responsive */
-    @media (max-width: 1200px) {
-        .couple-name {
-            font-size: 4rem;
+
+        /* Responsive Adjustments for very small devices */
+        @media (max-width: 360px) {
+            .couple-name {
+                font-size: 1.8rem;
+            }
+            
+            .couple-names {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .wedding-date {
+                font-size: 0.9rem;
+            }
+            
+            .countdown-item {
+                min-width: 55px;
+                padding: 0.5rem 0.3rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.1rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.5rem;
+            }
+            
+            .event-title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .event-icon {
+                font-size: 2.5rem;
+            }
+            
+            .guest-name {
+                font-size: 1.1rem;
+            }
+            
+            .btn-open {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.8rem;
+            }
+            
+            .message-form {
+                padding: 1rem;
+            }
+            
+            .gift-container {
+                padding: 1rem;
+            }
+            
+            .gift-method-title {
+                font-size: 1.5rem;
+            }
+            
+            .gift-method-icon {
+                font-size: 1.5rem;
+            }
+            
+            .footer-text {
+                font-size: 0.9rem;
+            }
+            
+            .signature {
+                font-size: 1.8rem;
+            }
+            
+            .music-player {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+                bottom: 15px;
+                right: 15px;
+            }
         }
-        
-        .couple-names {
-            font-size: 4rem;
-        }
-        
-        .section-title {
-            font-size: 3rem;
-        }
-        
-        .event-card, .gift-method {
-            min-width: 300px;
-        }
-    }
-    
-    @media (max-width: 992px) {
-        .couple-name {
-            font-size: 3.5rem;
-        }
-        
-        .couple-names {
-            font-size: 3.5rem;
-        }
-        
-        .section-title {
-            font-size: 2.8rem;
-        }
-        
-        .countdown-item {
-            min-width: 100px;
-            padding: 1.5rem 1rem;
-        }
-        
-        .countdown-number {
-            font-size: 2.5rem;
-        }
-        
-        .couple-portrait, .couple-photo {
-            width: 200px;
-            height: 200px;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .couple-name {
-            font-size: 3rem;
-        }
-        
-        .couple-names {
-            font-size: 3rem;
-        }
-        
-        .wedding-date {
-            font-size: 1.5rem;
-        }
-        
-        .countdown {
-            gap: 1rem;
-        }
-        
-        .countdown-item {
-            min-width: 80px;
-            padding: 1rem 0.5rem;
-        }
-        
-        .countdown-number {
-            font-size: 2rem;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-        }
-        
-        .couple-portrait, .couple-photo {
-            width: 180px;
-            height: 180px;
-        }
-        
-        .message-form, .gift-container {
-            padding: 2rem;
-        }
-        
-        .gift-method {
-            min-width: 100%;
-        }
-        
-        .music-player {
-            width: 50px;
-            height: 50px;
-            font-size: 1.3rem;
-            bottom: 20px;
-            right: 20px;
-        }
-        
-        .comment-item {
-            padding: 1.5rem;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        .couple-name {
-            font-size: 2.2rem;
-        }
-        
-        .guest-name {
-            font-size: 1.5rem;
-        }
-        
-        .couple-names {
-            font-size: 2.2rem;
-            white-space: normal;
-            line-height: 1.2;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title:after {
-            bottom: -10px;
-            width: 80px;
-        }
-        
-        .couple-portrait, .couple-photo {
-            width: 150px;
-            height: 150px;
-        }
-        
-        .event-card {
-            min-width: 100%;
-            padding: 2rem 1.5rem;
-        }
-        
-        .event-title {
-            font-size: 2rem;
-        }
-        
-        .countdown {
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .countdown-item {
-            min-width: 70px;
-            padding: 0.8rem 0.5rem;
-            margin: 0.3rem;
-        }
-        
-        .countdown-number {
-            font-size: 1.8rem;
-        }
-        
-        .countdown-label {
-            font-size: 0.8rem;
-        }
-        
-        .message-form {
-            padding: 1.5rem;
-        }
-        
-        .gift-container {
-            padding: 1.5rem;
-        }
-        
-        .gift-detail {
-            grid-template-columns: 1fr;
-            gap: 0.5rem;
-        }
-        
-        .gift-label, .gift-value {
-            text-align: left;
-        }
-        
-        .qr-code {
-            width: 120px;
-            height: 120px;
-        }
-        
-        .btn-open {
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-        }
-        
-        .opening-message {
-            font-size: 1.1rem;
-            padding: 0 1rem;
-        }
-    }
-    
-    @media (max-width: 400px) {
-        .couple-name {
-            font-size: 1.8rem;
-        }
-        
-        .couple-names {
-            font-size: 1.8rem;
-        }
-        
-        .section-title {
-            font-size: 1.7rem;
-        }
-        
-        .wedding-date {
-            font-size: 1.2rem;
-        }
-        
-        .countdown-item {
-            min-width: 60px;
-            padding: 0.7rem 0.3rem;
-        }
-        
-        .countdown-number {
-            font-size: 1.5rem;
-        }
-        
-        .countdown-label {
-            font-size: 0.7rem;
-        }
-        
-        .event-title {
-            font-size: 1.7rem;
-        }
-        
-        .event-icon {
-            font-size: 3rem;
-        }
-        
-        .guest-name {
-            font-size: 1.3rem;
-        }
-        
-        .btn-open {
-            padding: 0.7rem 1.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .invitation-card {
-            padding: 2rem 1rem;
-        }
-    }
-    
-    @media (max-width: 360px) {
-        .couple-name {
-            font-size: 1.6rem;
-        }
-        
-        .couple-names {
-            font-size: 1.6rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-        }
-        
-        .countdown-item {
-            min-width: 55px;
-        }
-        
-        .countdown-number {
-            font-size: 1.3rem;
-        }
-        
-        .event-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .event-card {
-            padding: 1.5rem 1rem;
-        }
-        
-        .message-form {
-            padding: 1.2rem;
-        }
-        
-        .gift-container {
-            padding: 1.2rem;
-        }
-        
-        .gift-method-title {
-            font-size: 1.8rem;
-        }
-    }
     </style>
 </head>
 <body>
@@ -1463,11 +1248,14 @@
         <div class="floating-element" style="width: 40px; height: 40px; top: 30%; left: 50%; animation-duration: 20s;">✦</div>
         
         <div class="invitation-container">
-            <div class="invitation-card animate__animated animate__fadeIn">
+            <div class="envelope animate__animated animate__fadeIn">
                 <div class="title">The Wedding Of</div>
-                <div class="couple-name">Ahmad & Siti</div>
+                <div class="hikmah">Ahmad<br>&<br>Sitti</div>
+                <div class="couple-photo-small">
+                    <img src="images/pp1.png" alt="Couple Photo">
+                </div>
                 <div class="to">Kepada Yth.</div>
-                <div class="guest-name" id="guestName">Ahmad</div>
+                <div class="guest-name" id="guestName">Nama Tamu</div>
                 <button class="btn-open" id="openInvitation">Buka Undangan</button>
             </div>
         </div>
@@ -1507,7 +1295,7 @@
             <p class="opening-message animate-fadeInUp delay-1">
                 Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, 
                 kami bermaksud menyelenggarakan pernikahan putra-putri kami 
-                yang insya Allah akan dilaksanakan pada:
+                yaitu:
             </p>
             
             <div class="couple-info">
@@ -1530,7 +1318,7 @@
         <!-- Section 3: Event Schedule -->
         <section class="section-events">
             <h2 class="section-title animate-fadeInUp">Jadwal Acara</h2>
-            
+            <p>Yang Insya Allah akan dilaksanakan:</p></p>
             <div class="events-container">
                 <div class="event-card animate-fadeInUp delay-1">
                     <div class="event-icon">
@@ -1589,7 +1377,7 @@
                         </div>
                         
                         <button class="copy-btn" data-copy="123 456 7890">
-                            <i class="far fa-copy"></i> Salin Nomor Rekening
+                            <i class="far fa-copy"></i> Salin
                         </button>
                         
                         <div class="qr-code">
@@ -1620,7 +1408,7 @@
                         </div>
                         
                         <button class="copy-btn" data-copy="081234567890">
-                            <i class="far fa-copy"></i> Salin Nomor DANA
+                            <i class="far fa-copy"></i> Salin
                         </button>
                         
                         <div class="qr-code">
