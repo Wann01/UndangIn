@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Mewah</title>
+    <title>Undangan Premium 002</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -87,15 +87,31 @@
                 opacity: 0;
             }
         }
-        
         .invitation-container {
             position: relative;
             z-index: 3;
-            padding: 2rem;
-            max-width: 600px;
-            width: 90%;
+            padding: 1rem;
+            max-width: 500px;
+            width: 100%;
             perspective: 1000px;
         }
+
+        .couple-photo-small {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            margin-top: 1rem;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .couple-photo-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }        
         
         .envelope {
             border: 2px solid var(--gold);
@@ -136,8 +152,8 @@
         
         .title {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--gold);
             letter-spacing: 5px;
             font-weight: 500;
@@ -156,10 +172,35 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .hikmah {
+            font-family: 'Playfair Display', serif;
+            margin: 0.5rem 0;
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            position: relative;
+            display: block;
+        }
         
+        .hikmah:before, .to:after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+            top: 50%;
+        }
+        
+        .hikmah:before {
+            left: -40px;
+        }
+        
+        .hikmah:after {
+            right: -40px;
+        }        
         .to {
-            margin: 2rem 0;
-            font-size: 1.3rem;
+            margin-top: 1rem;
+            font-size: 0.5rem;
             letter-spacing: 2px;
             position: relative;
             display: inline-block;
@@ -184,10 +225,9 @@
         
         .guest-name {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 0.8rem;
             border-bottom: 1px solid var(--gold);
             padding-bottom: 0.5rem;
-            margin-top: 1rem;
             display: block;
             margin: 1rem 0;
             letter-spacing: 1px;
@@ -198,8 +238,8 @@
             color: var(--gold);
             border: 1px solid var(--gold);
             padding: 1rem 3rem;
-            font-size: 1.1rem;
-            margin-top: 2rem;
+            font-size: 0.5rem;
+            margin-top: 1rem;
             cursor: pointer;
             transition: all 0.4s ease;
             letter-spacing: 2px;
@@ -281,6 +321,7 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             position: relative;
             display: inline-block;
+            white-space: nowrap;
         }
         
         .couple-names:after {
@@ -306,17 +347,17 @@
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
+            gap: 0.3rem;
+            flex-wrap: nowrap;
         }
         
         .countdown-item {
             background: rgba(212, 175, 55, 0.2);
             color: white;
-            padding: 1.5rem 1rem;
-            border-radius: 10px;
-            min-width: 100px;
+            padding: 0.5rem;
+            border-radius: 5px;
+            min-width: 50px;
+            text-align: center;
             backdrop-filter: blur(5px);
             border: 1px solid var(--gold);
             transition: all 0.3s ease;
@@ -330,7 +371,7 @@
         }
         
         .countdown-number {
-            font-size: 2.5rem;
+            font-size: 1rem;
             font-weight: 600;
             background: linear-gradient(to right, var(--gold), var(--rose-gold));
             -webkit-background-clip: text;
@@ -338,11 +379,12 @@
         }
         
         .countdown-label {
-            font-size: 0.9rem;
+            font-size: 0.5rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 0.5rem;
+            letter-spacing: 1px;
+            margin-top: 0.2rem;
             font-weight: 500;
+            color: white;
         }
         
         /* Section 2: Couple Introduction */
@@ -535,7 +577,64 @@
             font-weight: 500;
             color: var(--dark);
         }
-        
+        /* Gallery Section */
+        .section-gallery {
+            padding: 6rem 2rem;
+            background-color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-gallery:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--light), transparent);
+            z-index: 1;
+        }
+
+        .gallery-intro {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            aspect-ratio: 1/1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .gallery-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-photo {
+            transform: scale(1.05);
+        }        
         /* Section 4: Guest Messages */
                 .section-messages {
             padding: 6rem 2rem;
@@ -711,21 +810,33 @@
             font-size: 0.9rem;
             color: #666;
         }
-
-        .comment-list {
+        /* Comment Section Styles */
+        .comment-container {
             max-width: 800px;
             margin: 3rem auto 0;
-            text-align: left;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 0;
+            position: relative;
+            border-left: 4px solid var(--gold);
+            max-height: 400px; /* Adjust height as needed */
+            overflow-y: auto;
+        }
+
+        .comment-list {
+            padding: 1.5rem;
         }
 
         .comment-item {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-            border-left: 4px solid var(--gold);
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comment-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .comment-header {
@@ -738,10 +849,11 @@
         .comment-name {
             font-weight: 600;
             color: var(--dark);
+            font-size: 0.9rem;
         }
 
         .comment-attendance {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             padding: 0.2rem 0.5rem;
             border-radius: 50px;
             background: var(--light);
@@ -761,14 +873,35 @@
         .comment-text {
             color: #555;
             line-height: 1.6;
-            margin-top: 0.5rem;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+            text-align: left;
+            padding-right: 1rem;
         }
 
         .comment-date {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #999;
-            margin-top: 0.5rem;
             text-align: right;
+        }
+
+        /* Custom scrollbar */
+        .comment-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .comment-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .comment-container::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+
+        .comment-container::-webkit-scrollbar-thumb:hover {
+            background: #B7950B;
         }
 
         .sticker-picker {
@@ -942,6 +1075,7 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
+            white-space: nowrap;
         }
 
         .gift-method-icon {
@@ -1127,18 +1261,32 @@
             }
             
             .countdown {
-                gap: 1rem;
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
             }
             
             .countdown-item {
-                min-width: 80px;
-                padding: 1rem 0.5rem;
+                color: white;
+                padding: 0.5rem;
+                border-radius: 5px;
+                min-width: 50px;
+                text-align: center;
             }
             
             .countdown-number {
-                font-size: 2rem;
+                font-size: 1rem;
+                font-weight: 600;
             }
-            
+            .countdown-label {
+                font-size: 0.5rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 0.2rem;
+                font-weight: 500;
+                color: white;
+            }
+
             .section-title {
                 font-size: 2.2rem;
             }
@@ -1219,6 +1367,62 @@
         .delay-4 {
             animation-delay: 0.8s;
         }
+        /* Tambahkan di bagian CSS */
+        .notification {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            animation: fadeInUp 0.5s ease;
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            border: 1px solid #4CAF50;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(10px);
+            height: 0;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+            height: auto;
+            padding: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .btn-loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .btn-loading:after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border: 3px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: button-loading-spinner 1s ease infinite;
+        }
+
+        @keyframes button-loading-spinner {
+            from {
+                transform: rotate(0turn);
+            }
+            to {
+                transform: rotate(1turn);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1234,8 +1438,12 @@
         <div class="invitation-container">
             <div class="envelope animate__animated animate__fadeIn">
                 <div class="title">The Wedding Of</div>
+                <div class="hikmah">Ahmad<br>&<br>Siti</div>
+                <div class="couple-photo-small">
+                    <img src="images/pp1.png" alt="Couple Photo">
+                </div>
                 <div class="to">Kepada Yth.</div>
-                <div class="guest-name" id="guestName">Ahmad</div>
+                <div class="guest-name" id="guestName">Nama Tamu</div>
                 <button class="btn-open" id="openInvitation">Buka Undangan</button>
             </div>
         </div>
@@ -1273,24 +1481,21 @@
         <section class="section-couple">
             <h2 class="section-title animate-fadeInUp">Assalamu'alaikum</h2>
             <p class="opening-message animate-fadeInUp delay-1">
-                Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, 
-                kami bermaksud menyelenggarakan pernikahan putra-putri kami 
-                yang insya Allah akan dilaksanakan pada:
+                Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala,
+                kami bermaksud menyelenggarakan pernikahan putra-putri kami yaitu:
             </p>
             
             <div class="couple-info">
                 <div class="groom animate-fadeInUp delay-2">
                     <img src="images/pp3.png" alt="Groom" class="couple-portrait">
                     <h3 class="couple-name">Ahmad Fauzi</h3>
-                    <p>Putra pertama dari</p>
-                    <p class="parents-name">Bapak Muhammad & Ibu Aisyah</p>
+                    <p>Putra Pertama dari <br>Bapak Muhammad & Ibu Aisyah</p>
                 </div>
                 
                 <div class="bride animate-fadeInUp delay-3">
                     <img src="images/pp4.png" alt="Bride" class="couple-portrait">
                     <h3 class="couple-name">Siti Rahmah</h3>
-                    <p>Putri kedua dari</p>
-                    <p class="parents-name">Bapak Abdullah & Ibu Fatimah</p>
+                    <p>Putri kedua dari <br>Bapak Abdullah & Ibu Fatimah</p>
                 </div>
             </div>
         </section>
@@ -1298,7 +1503,7 @@
         <!-- Section 3: Event Schedule -->
         <section class="section-events">
             <h2 class="section-title animate-fadeInUp">Jadwal Acara</h2>
-            
+            <p>yang Insya Allah akan dilaksanakan:</p>
             <div class="events-container">
                 <div class="event-card animate-fadeInUp delay-1">
                     <div class="event-icon">
@@ -1306,7 +1511,7 @@
                     </div>
                     <h3 class="event-title">Akad Nikah</h3>
                     <p class="event-date">Sabtu, 12 Desember 2025</p>
-                    <p class="event-time">08.00 - 10.00 WIB</p>
+                    <p class="event-time">10.00 - 11.00 WITA</p>
                     <p class="event-location">Masjid Al-Falah<br>Jl. Kenangan No. 123, Kota</p>
                 </div>
                 
@@ -1316,12 +1521,37 @@
                     </div>
                     <h3 class="event-title">Resepsi</h3>
                     <p class="event-date">Sabtu, 12 Desember 2025</p>
-                    <p class="event-time">11.00 - 15.00 WIB</p>
+                    <p class="event-time">12.00 WITA - Selesai</p>
                     <p class="event-location">Grand Ballroom Hotel Mewah<br>Jl. Bahagia No. 456, Kota</p>
                 </div>
             </div>
         </section>
-        <!-- Section 5 -->
+        <!-- Section 4: Gallery -->
+        <section class="section-gallery">
+            <h2 class="section-title animate-fadeInUp">Galeri Kami</h2>
+            <p class="gallery-intro animate-fadeInUp delay-1">
+                Beberapa momen indah kami yang ingin kami bagikan dengan Anda.
+            </p>
+            
+            <div class="gallery-container">
+                <div class="gallery-item animate-fadeInUp delay-1">
+                    <img src="img/gallery/thumbnail/1.png" alt="Gallery Photo 1" class="gallery-photo">
+                </div>
+                <div class="gallery-item animate-fadeInUp delay-2">
+                    <img src="img/gallery/thumbnail/2.png" alt="Gallery Photo 2" class="gallery-photo">
+                </div>
+                <div class="gallery-item animate-fadeInUp delay-3">
+                    <img src="img/gallery/thumbnail/3.png" alt="Gallery Photo 3" class="gallery-photo">
+                </div>
+                <div class="gallery-item animate-fadeInUp delay-1">
+                    <img src="img/gallery/thumbnail/4.png" alt="Gallery Photo 4" class="gallery-photo">
+                </div>
+                <div class="gallery-item animate-fadeInUp delay-2">
+                    <img src="img/gallery/thumbnail/5.png" alt="Gallery Photo 5" class="gallery-photo">
+                </div>
+            </div>
+        </section>
+        <!-- Section 4 -->
         <section class="section-gifts">
             <h2 class="section-title animate-fadeInUp"><i class="fas fa-gift"></i> Kirim Hadiah</h2>
             
@@ -1342,32 +1572,31 @@
                         
                         <div class="gift-detail">
                             <span class="gift-label">Nama Bank:</span>
-                            <span class="gift-value">Bank Central Asia (BCA)</span>
+                            <span class="gift-value">Bank BRI</span>
                         </div>
                         
                         <div class="gift-detail">
                             <span class="gift-label">Nomor Rekening:</span>
-                            <span class="gift-value">123 456 7890</span>
+                            <span class="gift-value">123 456 789</span>
                         </div>
                         
                         <div class="gift-detail">
                             <span class="gift-label">Atas Nama:</span>
-                            <span class="gift-value">Ahmad Fauzi</span>
+                            <span class="gift-value">Ahmad</span>
                         </div>
                         
-                        <button class="copy-btn" data-copy="123 456 7890">
+                        <button class="copy-btn" data-copy="123 456 789">
                             <i class="far fa-copy"></i> Salin Nomor Rekening
                         </button>
                         
                         <div class="qr-code">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BCA%20123%20456%207890%20Ahmad%20Fauzi" alt="QR Code BCA">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BRI%20123456789%20Ahmad" alt="QR Code BRI">
                         </div>
                     </div>
-                    
-                    <!-- E-Wallet Method -->
+                    <!-- E-Wallet Transfer Method -->
                     <div class="gift-method">
                         <h3 class="gift-method-title">
-                            <i class="fas fa-wallet gift-method-icon"></i>
+                            <i class="fas fa-university gift-method-icon"></i>
                             E-Wallet
                         </h3>
                         
@@ -1383,21 +1612,21 @@
                         
                         <div class="gift-detail">
                             <span class="gift-label">Atas Nama:</span>
-                            <span class="gift-value">Siti Rahmah</span>
+                            <span class="gift-value">Ahmad</span>
                         </div>
                         
-                        <button class="copy-btn" data-copy="081234567890">
+                        <button class="copy-btn" data-copy="0812 3456 7890">
                             <i class="far fa-copy"></i> Salin Nomor DANA
                         </button>
                         
                         <div class="qr-code">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=081234567890" alt="QR Code DANA">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=DANA%20081234567890%20Ahmad" alt="QR Code DANA">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Section 4: Guest Messages (Komentar) -->
+        <!-- Section 5: Guest Messages (Komentar) -->
         <section class="section-messages">
             <h2 class="section-title animate-fadeInUp"><i class="fas fa-comments"></i> Ucapan & Doa</h2>
 
@@ -1420,6 +1649,7 @@
                         <button type="button" class="btn-secondary" id="stickerBtn"><i class="far fa-smile"></i> Tambah Stiker</button>
                         <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Kirim Ucapan</button>
                     </div>
+                    <div class="notification" id="notification" style="display: none;"></div>
                     <!-- Tambahkan statistik di sini -->
                     <div class="inline-stats">
                         <div class="stat" id="attendingInline">
@@ -1436,15 +1666,17 @@
             </div>
 
             <!-- Daftar Komentar -->
-            <div class="comment-list" id="commentList">
-                <!-- Komentar akan muncul di sini -->
-                <div class="comment-item animate-fadeInUp delay-3">
-                    <div class="comment-header">
-                        <span class="comment-name">Contoh Nama</span>
-                        <span class="comment-attendance hadir">Hadir</span>
+            <div class="comment-container">
+                <div class="comment-list" id="commentList">
+                    <!-- Komentar akan muncul di sini -->
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <span class="comment-name">Contoh Nama</span>
+                            <span class="comment-attendance hadir">Hadir</span>
+                        </div>
+                        <p class="comment-text">Ini adalah contoh ucapan. Semoga pernikahan kalian bahagia selalu! ❤️</p>
+                        <div class="comment-date">12 Des 2025, 10:30</div>
                     </div>
-                    <p class="comment-text">Ini adalah contoh ucapan. Semoga pernikahan kalian bahagia selalu! ❤️</p>
-                    <div class="comment-date">12 Des 2025, 10:30</div>
                 </div>
             </div>
 
@@ -1481,7 +1713,7 @@
                 Terima kasih atas doa dan restu yang telah diberikan. 
                 Semoga Allah SWT membalas semua kebaikan Anda.
             </p>
-            <p class="signature animate-fadeInUp delay-1">Keluarga Besar Pengantin</p>
+            <p class="signature animate-fadeInUp delay-1">Ahmad & Siti</p>
         </footer>
     </div>
 
@@ -1528,7 +1760,7 @@
 
         // Countdown Timer
         function updateCountdown() {
-            const weddingDate = new Date('December 12, 2025 08:00:00').getTime();
+            const weddingDate = new Date('December 12, 2025 10:00:00').getTime();
             const now = new Date().getTime();
             const distance = weddingDate - now;
             
@@ -1555,15 +1787,23 @@
             loadComments();
             
             // Form submission
+            // Ganti bagian form submission dengan ini:
             document.getElementById('commentForm').addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 const name = document.getElementById('name').value.trim();
                 const attendance = document.getElementById('attendance').value;
                 const commentText = document.getElementById('comment').value.trim();
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const notification = document.getElementById('notification');
                 
                 if (name && commentText) {
                     try {
+                        // Tampilkan loading
+                        submitBtn.innerHTML = '';
+                        submitBtn.classList.add('btn-loading');
+                        submitBtn.disabled = true;
+                        
                         const formData = new FormData();
                         formData.append('name', name);
                         formData.append('attendance', attendance);
@@ -1580,17 +1820,37 @@
                             // Reset form
                             this.reset();
                             
+                            // Tampilkan notifikasi
+                            // Ganti bagian notifikasi dengan:
+                            notification.textContent = 'Ucapan Anda telah terkirim! Terima kasih.';
+                            notification.classList.add('show');
+
+                            // Sembunyikan notifikasi setelah 3 detik
+                            setTimeout(() => {
+                                notification.classList.remove('show');
+                            }, 3000);
+                            
                             // Reload komentar
                             loadComments();
-                            
-                            // Show success message
-                            alert('Ucapan Anda telah terkirim. Terima kasih!');
                         } else {
                             throw new Error(result.message || 'Gagal menyimpan data');
                         }
                     } catch (error) {
                         console.error('Error:', error);
-                        alert('Terjadi kesalahan saat mengirim ucapan: ' + error.message);
+                        notification.textContent = 'Gagal mengirim ucapan: ' + error.message;
+                        notification.style.backgroundColor = 'rgba(244, 67, 54, 0.1)';
+                        notification.style.color = '#F44336';
+                        notification.style.borderColor = '#F44336';
+                        notification.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            notification.style.display = 'none';
+                        }, 3000);
+                    } finally {
+                        // Kembalikan tombol ke keadaan semula
+                        submitBtn.classList.remove('btn-loading');
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Kirim Ucapan';
+                        submitBtn.disabled = false;
                     }
                 }
             });
@@ -1662,13 +1922,25 @@
                 const attendanceClass = comment.attendance === 'hadir' ? 'hadir' : 'tidak';
                 const attendanceText = comment.attendance === 'hadir' ? 'Hadir' : 'Tidak Hadir';
 
+                // Konversi tanggal ke format Indonesia dan zona waktu WITA
+                const dateObj = new Date(comment.date);
+                const formattedDate = new Intl.DateTimeFormat('id-ID', {
+                    timeZone: 'Asia/Makassar', // Zona WITA
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                }).format(dateObj);
+
                 commentItem.innerHTML = `
                     <div class="comment-header">
                         <span class="comment-name">${comment.name}</span>
                         <span class="comment-attendance ${attendanceClass}">${attendanceText}</span>
                     </div>
                     <p class="comment-text">${comment.text}</p>
-                    <div class="comment-date">${comment.date}</div>
+                    <div class="comment-date">${formattedDate}</div>
                 `;
 
                 commentList.appendChild(commentItem);
